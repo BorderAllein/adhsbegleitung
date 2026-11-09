@@ -33,12 +33,12 @@ function layout({ p, title, desc, schema = [], noindex = false, body }) {
 ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" content="index, follow, max-image-preview:large">\n'}<meta property="og:locale" content="de_DE"><meta property="og:type" content="website"><meta property="og:site_name" content="ADHS Begleitung">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}">
 <meta name="twitter:card" content="summary">
-<meta name="theme-color" content="#1d4ed8">
+<meta name="theme-color" content="#0A1930">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=3">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css?v=5">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 </head>
@@ -85,12 +85,14 @@ layout({
   p: '/', title: 'ADHS verständlich erklärt: Wissen, Diagnose, Alltag | ADHS Begleitung',
   desc: 'Klare, quellenbasierte Antworten zu ADHS bei Erwachsenen: erkennen, Diagnose, Behandlung, Alltag. Dazu persönliche Begleitung mit Angie.',
   schema: [{ '@type': 'CollectionPage', '@id': B + '/#webpage', url: B + '/', name: 'ADHS Begleitung', dateModified: DATE, inLanguage: 'de-DE' }],
-  body: `<section class="hero"><div class="wrap">
+  body: `<section class="hero"><div class="wrap hero__g"><div>
   <span class="eyebrow">Wissen und Begleitung</span>
   <h1>ADHS verständlich erklärt. Klar, sachlich, mit Quellen.</h1>
   <p class="lede">Antworten auf die Fragen, die Erwachsene mit ADHS, ihre Angehörigen und Eltern wirklich stellen: von der Diagnose bis zum Alltag.</p>
   <div class="search" id="suche">${SEARCH_ICON}<input id="q" type="search" placeholder="Wonach suchst Du? Zum Beispiel Diagnose, Frauen, Schlaf" aria-label="Suche" autocomplete="off"><div class="search__res" id="qres"></div></div>
   <div class="trust"><span>Jede Aussage mit Quelle</span><span>Keine Werbung, keine Pharma-Partner</span><span>Keine Diagnose, keine Heilversprechen</span></div>
+</div>
+<div class="blobph"><svg class="blobph__star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><div class="blobph__img"><img src="/assets/img/Coach-Angie.jpeg" alt="Angie, Mentorin und Wegbegleiterin" width="421" height="530" fetchpriority="high"></div><div class="blobph__tag">Angie<small>Mentorin und Wegbegleiterin</small></div></div>
 </div></section>
 
 <section class="sec"><div class="wrap">
@@ -203,7 +205,7 @@ layout({ p: '/kontakt/', title: 'Kontakt | ADHS Begleitung', desc: 'Kostenloses 
 layout({ p: '/impressum/', title: 'Impressum | ADHS Begleitung', desc: 'Impressum und Anbieterkennzeichnung gemäß § 5 DDG.',
   body: `<section class="ph"><div class="wrap"><h1>Impressum</h1><p class="lede">Angaben gemäß § 5 DDG.</p></div></section><section class="sec"><div class="wrap--n prose" style="margin:0 auto"><h2 style="margin-top:0">Anbieter</h2><p>BA Entertainment<br>Alleestraße 15<br>42781 Haan<br>Deutschland</p><h2>Kontakt</h2><p>E-Mail: info@cogether.de<br>Website: adhsbegleitung.de</p><h2>Vertretungsberechtigte Person</h2><p>S. Ulrich</p><h2>Umsatzsteuer-ID</h2><p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE352483219</p><h2>Haftung für Inhalte</h2><p>Die Inhalte dienen der Information und ersetzen keine ärztliche oder psychotherapeutische Beratung und Behandlung.</p></div></section>` });
 layout({ p: '/datenschutz/', title: 'Datenschutz | ADHS Begleitung', desc: 'Datenschutzhinweise für adhsbegleitung.de.',
-  body: `<section class="ph"><div class="wrap"><h1>Datenschutz</h1><p class="lede">Diese Seite setzt keine Tracking-Cookies und verwendet keine Analyse- oder Werbedienste.</p></div></section><section class="sec"><div class="wrap--n prose" style="margin:0 auto"><h2 style="margin-top:0">Verantwortliche Stelle</h2><p>BA Entertainment, Alleestraße 15, 42781 Haan, E-Mail: info@cogether.de</p><h2>Hosting und Server-Logdaten</h2><p>Die Seite wird als statische Website über GitHub Pages ausgeliefert. Beim Aufruf verarbeitet der Hoster technisch notwendige Daten (zum Beispiel IP-Adresse, Zeitpunkt, aufgerufene Seite), um die Seite auszuliefern und die Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p><h2>Schriftarten</h2><p>Die Schriftarten (Manrope, Source Sans 3) werden von Google Fonts geladen. Dabei wird Deine IP-Adresse an Google übertragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p><h2>Suche</h2><p>Die Suche läuft vollständig in Deinem Browser. Eingaben werden nicht übertragen oder gespeichert.</p><h2>Terminbuchung und Kontakt</h2><p>Für die Buchung eines Erstgesprächs wirst Du zu cogether.de weitergeleitet. Dort gelten die <a href="https://cogether.de/datenschutz/">Datenschutzhinweise von CoGether</a>. Wenn Du uns per E-Mail schreibst, verarbeiten wir Deine Angaben zur Bearbeitung Deiner Anfrage.</p><h2>Deine Rechte</h2><p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Schreib dazu an info@cogether.de.</p></div></section>` });
+  body: `<section class="ph"><div class="wrap"><h1>Datenschutz</h1><p class="lede">Diese Seite setzt keine Tracking-Cookies und verwendet keine Analyse- oder Werbedienste.</p></div></section><section class="sec"><div class="wrap--n prose" style="margin:0 auto"><h2 style="margin-top:0">Verantwortliche Stelle</h2><p>BA Entertainment, Alleestraße 15, 42781 Haan, E-Mail: info@cogether.de</p><h2>Hosting und Server-Logdaten</h2><p>Die Seite wird als statische Website über GitHub Pages ausgeliefert. Beim Aufruf verarbeitet der Hoster technisch notwendige Daten (zum Beispiel IP-Adresse, Zeitpunkt, aufgerufene Seite), um die Seite auszuliefern und die Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p><h2>Schriftarten</h2><p>Die Schriftarten (Poppins, Inter) werden von Google Fonts geladen. Dabei wird Deine IP-Adresse an Google übertragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p><h2>Suche</h2><p>Die Suche läuft vollständig in Deinem Browser. Eingaben werden nicht übertragen oder gespeichert.</p><h2>Terminbuchung und Kontakt</h2><p>Für die Buchung eines Erstgesprächs wirst Du zu cogether.de weitergeleitet. Dort gelten die <a href="https://cogether.de/datenschutz/">Datenschutzhinweise von CoGether</a>. Wenn Du uns per E-Mail schreibst, verarbeiten wir Deine Angaben zur Bearbeitung Deiner Anfrage.</p><h2>Deine Rechte</h2><p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Schreib dazu an info@cogether.de.</p></div></section>` });
 
 /* ---------- Technik ---------- */
 wr('search-index.json', JSON.stringify(A.map((a) => ({ t: a.title, d: a.desc, c: catBy[a.cat].name, u: `/artikel/${a.slug}/`, k: a.sections.map((s) => s[1]).join(' ') + ' ' + a.faq.map((f) => f[0]).join(' ') }))));
@@ -211,7 +213,7 @@ const urls = ['/', ...CATS.filter((c) => artsOf(c.slug).length).map((c) => `/the
 wr('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${B}${u}</loc><lastmod>${DATE}</lastmod><priority>${u === '/' ? '1.0' : u.startsWith('/artikel/') ? '0.9' : '0.6'}</priority></url>`).join('\n')}\n</urlset>\n`);
 wr('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${B}/sitemap.xml\n`);
 wr('llms.txt', `# ADHS Begleitung\n\n> Quellenbasierte Informationen zu ADHS bei Erwachsenen (erkennen, Diagnose, Behandlung, Alltag, Gefühle, Beziehung, Arbeit) und persönliche Begleitung mit Angie (Coaching, keine Therapie). Herausgeber: BA Entertainment, Alleestraße 15, 42781 Haan. Kontakt: info@cogether.de. Stand: 09.11.2026.\n\n## Artikel\n\n${A.map((a) => `- [${a.title}](${B}/artikel/${a.slug}/): ${a.desc}`).join('\n')}\n\n## Weitere Seiten\n\n- [Glossar](${B}/glossar/)\n- [Begleitung mit Angie](${B}/begleitung/)\n- [Redaktion und Quellen](${B}/redaktion/)\n`);
-wr('favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#1d4ed8"/><text x="32" y="45" text-anchor="middle" font-family="Arial" font-weight="800" font-size="38" fill="#fff">A</text></svg>`);
+wr('favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="18" fill="#A85433"/><text x="32" y="45" text-anchor="middle" font-family="Arial" font-weight="800" font-size="38" fill="#fff">A</text></svg>`);
 wr('CNAME', 'adhsbegleitung.de\n');
 wr('404.html', `<!doctype html><meta charset="utf-8"><title>Seite nicht gefunden</title><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/assets/site.css"><body><main class="wrap" style="padding:6rem 0"><span class="eyebrow">404</span><h1>Diese Seite gibt es nicht.</h1><p class="lede" style="margin:1rem 0 2rem">Vielleicht hilft die Suche auf der Startseite.</p><a class="btn" href="/">Zur Startseite</a></main></body>`);
 console.log('Artikel:', A.length, 'URLs:', urls.length);

@@ -1,0 +1,14 @@
+const fs = require('fs');
+const root = __dirname + '/../';
+let css = fs.readFileSync(root + 'assets/site.css', 'utf8');
+if (!css.includes('V2: Farben und Formen')) css += fs.readFileSync(__dirname + '/v2.css', 'utf8');
+fs.writeFileSync(root + 'assets/site.css', css);
+let t = fs.readFileSync(root + 'gen2.cjs', 'utf8');
+t = t.replace('family=Manrope:wght@500;600;700;800&family=Source+Sans+3:wght@400;500;600', 'family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600');
+t = t.replace('site.css?v=3', 'site.css?v=4').replace('content="#1d4ed8"', 'content="#0A1930"');
+t = t.replace('<rect width="64" height="64" rx="14" fill="#1d4ed8"/>', '<rect width="64" height="64" rx="18" fill="#A85433"/>');
+t = t.replace('(Manrope, Source Sans 3)', '(Poppins, Inter)');
+t = t.replace('<section class="hero"><div class="wrap">\n  <span class="eyebrow">Wissen und Begleitung</span>', '<section class="hero"><div class="wrap hero__g"><div>\n  <span class="eyebrow">Wissen und Begleitung</span>');
+t = t.replace('<span>Keine Diagnose, keine Heilversprechen</span></div>\n</div></section>', '<span>Keine Diagnose, keine Heilversprechen</span></div>\n</div>\n<div class="blobph"><svg class="blobph__star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><div class="blobph__img"><img src="/assets/img/Coach-Angie.jpeg" alt="Angie, Mentorin und Wegbegleiterin" width="421" height="530" fetchpriority="high"></div><div class="blobph__tag">Angie<small>Mentorin und Wegbegleiterin</small></div></div>\n</div></section>');
+fs.writeFileSync(root + 'gen2.cjs', t);
+console.log(t.includes('blobph'), t.includes('hero__g'), t.includes('Poppins'));
