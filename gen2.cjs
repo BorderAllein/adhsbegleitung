@@ -13,7 +13,7 @@ const artsOf = (slug) => A.filter((a) => a.cat === slug);
 const artBy = Object.fromEntries(A.map((a) => [a.slug, a]));
 const SEARCH_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
 
-const NAV = [['/thema/erkennen/', 'ADHS erkennen'], ['/thema/diagnose/', 'Diagnose'], ['/thema/behandlung/', 'Behandlung'], ['/thema/alltag/', 'Alltag'], ['/podcast/', 'Podcast'], ['/glossar/', 'Glossar']];
+const NAV = [['/thema/erkennen/', 'ADHS erkennen'], ['/thema/diagnose/', 'Diagnose'], ['/thema/behandlung/', 'Behandlung'], ['/thema/alltag/', 'Alltag'], ['/adhs-test/', 'ADHS-Test'], ['/podcast/', 'Podcast'], ['/glossar/', 'Glossar']];
 
 function layout({ p, title, desc, schema = [], noindex = false, body }) {
   const url = B + p;
@@ -38,7 +38,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" co
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=15">
+<link rel="stylesheet" href="/assets/site.css?v=17">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 </head>
@@ -61,7 +61,7 @@ ${body}
   <div class="ft__g">
     <div><div class="logo" style="margin-bottom:1rem"><img class="logo__img" src="/assets/img/logo.png" width="84" height="84" alt="" loading="lazy"><span><b style="color:#fff">ADHS Begleitung</b></span></div><p style="max-width:36ch">Verständliche Informationen zu ADHS, mit Quellen. Dazu persönliche Begleitung mit Angie.</p></div>
     <div><h4>Themen</h4>${CATS.map((c) => `<a href="/thema/${c.slug}/">${c.name}</a>`).join('')}</div>
-    <div><h4>Angebot</h4><a href="/begleitung/">Begleitung mit Angie</a><a href="/podcast/">Podcast Gedankenkotze</a><a href="/glossar/">Glossar</a><a href="/redaktion/">Redaktion und Quellen</a><a href="/kontakt/">Kontakt</a></div>
+    <div><h4>Angebot</h4><a href="/begleitung/">Begleitung mit Angie</a><a href="/adhs-test/">ADHS-Test</a><a href="/podcast/">Podcast Gedankenkotze</a><a href="/glossar/">Glossar</a><a href="/redaktion/">Redaktion und Quellen</a><a href="/kontakt/">Kontakt</a></div>
     <div><h4>Rechtliches</h4><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
     <div><h4>Die CoGether-Welt</h4><a href="https://cogether.de/" rel="noopener">CoGether, Coaching</a><a href="https://cogether.de/coach-angie/" rel="noopener">Angie bei CoGether</a><a href="https://cogether-software.de/" rel="noopener">Software für Coaches</a><a href="https://business.cogether.de/" rel="noopener">Für Organisationen</a><a href="https://guidanceobservatory.com/" rel="noopener">Guidance Observatory</a><a href="https://gedankenkotze.de/" rel="noopener">Podcast Gedankenkotze</a></div>
   </div>
@@ -109,6 +109,8 @@ layout({
     <p style="margin-top:1.6rem"><a class="btn" href="/begleitung/">Mehr über die Begleitung</a></p>
   </div>
 </div></section>
+
+<section class="sec sec--soft"><div class="wrap"><div class="band"><div><h2>Passt das zu mir? Der ADHS-Test</h2><p>25 Fragen zur Orientierung, kostenlos und ohne Anmeldung. Kein Diagnoseverfahren, aber ein guter Start für das Gespräch mit Fachleuten.</p></div><a class="btn" href="/adhs-test/">Test starten</a></div></div></section>
 
 <section class="sec"><div class="wrap">
   <div class="sec__h"><div><h2>Themen</h2><p>Acht Bereiche, klar gegliedert. Wähle den, der zu Deiner Frage passt.</p></div></div>
@@ -165,7 +167,7 @@ const CG_EXTRA = {
 };
 const cgBlock = (a) => {
   const ex = (CG_EXTRA[a.cat] || []).map(([u, l]) => '<a href="' + (u.startsWith('http') ? u : CG + u) + '" rel="noopener">' + l + '</a>').join('');
-  return '<section class="cgblock"><h2 style="margin-top:3rem">Wie es weitergehen kann</h2><p>Wissen ist ein Anfang. Wenn Du Dich begleiten lassen möchtest: <b>Angie</b> ist Mentorin und Wegbegleiterin bei CoGether und bietet Mentoring, Einzelbegleitung und die Gruppe UNGEFILTERT an. Das Erstgespräch ist kostenlos.</p><div class="cgl"><a href="' + CG + '/mentoring/" rel="noopener">Mentoring bei CoGether</a><a href="' + CG + '/coach-angie/" rel="noopener">Angie bei CoGether</a><a href="' + BOOK + '" rel="noopener">Kostenloses Erstgespräch</a><a href="/podcast/">Podcast Gedankenkotze</a>' + ex + '</div></section>';
+  return '<section class="cgblock"><h2 style="margin-top:3rem">Wie es weitergehen kann</h2><p>Wissen ist ein Anfang. Wenn Du Dich begleiten lassen möchtest: <b>Angie</b> ist Mentorin und Wegbegleiterin bei CoGether und bietet Mentoring, Einzelbegleitung und die Gruppe UNGEFILTERT an. Das Erstgespräch ist kostenlos.</p><div class="cgl"><a href="' + CG + '/mentoring/" rel="noopener">Mentoring bei CoGether</a><a href="' + CG + '/coach-angie/" rel="noopener">Angie bei CoGether</a><a href="' + BOOK + '" rel="noopener">Kostenloses Erstgespräch</a><a href="/podcast/">Podcast Gedankenkotze</a>' + (['erkennen', 'diagnose'].includes(a.cat) ? '<a href="/adhs-test/">ADHS-Test</a>' : '') + ex + '</div></section>';
 };
 
 /* ---------- ARTIKEL ---------- */
@@ -297,6 +299,51 @@ for (const a of A) {
 ${band('Wenn Zuhören nicht reicht', 'Im kostenlosen Erstgespräch lernst Du Angie persönlich kennen, online und unverbindlich.', 'Erstgespräch buchen', BOOK)}` });
 }
 
+/* ---------- ADHS-TEST ---------- */
+{
+  const SX = require('./content/articles.cjs').S;
+  const bc = [['/', 'Start'], ['/adhs-test/', 'ADHS-Test']];
+  const faq = [
+    ['Kann ein Online-Test ADHS feststellen?', 'Nein. Eine Diagnose stellen nur Fachleute nach ausführlichem Gespräch, Fragebögen und der Abklärung anderer Ursachen. Dieser Test gibt eine erste Orientierung, mehr nicht.'],
+    ['Wie ist der Test aufgebaut?', 'Er hat 18 Aussagen zu Aufmerksamkeit und Unruhe, drei Fragen zur Kindheit und vier zu den Auswirkungen im Alltag. Die Aufteilung folgt den Bereichen, die Fachleute bei Erwachsenen betrachten.'],
+    ['Was bedeuten fünf oder mehr Aussagen mit „oft“?', 'Nach dem NDR-Ratgeber müssen für eine Diagnose bei Erwachsenen aktuell mindestens fünf Symptome pro Kategorie über mindestens sechs Monate vorliegen. Der Test nutzt diese Größenordnung als Orientierung.'],
+    ['Werden meine Antworten gespeichert?', 'Nein. Der Test läuft komplett in Deinem Browser. Es werden keine Daten übertragen oder gespeichert.'],
+    ['Ich habe viele Punkte. Was jetzt?', 'Such Dir eine ADHS-erfahrene Psychotherapeutin, einen Psychotherapeuten oder eine Fachärztin oder einen Facharzt für Psychiatrie, Neurologie oder Psychosomatik. Den kopierten Ergebnistext kannst Du mitnehmen.'],
+    ['Ich habe wenige Punkte, leide aber trotzdem. Was jetzt?', 'Dann lohnt sich ein Gespräch mit einer Fachperson. Erschöpfung, Konzentrationsprobleme und Unruhe haben viele Ursachen, auch Schlafmangel, Depression oder Angst.'],
+  ];
+  layout({ p: '/adhs-test/', title: 'ADHS-Test für Erwachsene: Selbsttest zur Orientierung | ADHS Begleitung',
+    desc: 'Kostenloser ADHS-Selbsttest für Erwachsene mit 25 Fragen zu Aufmerksamkeit, Unruhe, Kindheit und Alltag. Sofort-Ergebnis, ohne Anmeldung. Kein Diagnoseverfahren.',
+    schema: [bcSchema(bc), { '@type': 'WebPage', '@id': B + '/adhs-test/#page', url: B + '/adhs-test/', name: 'ADHS-Test für Erwachsene', inLanguage: 'de-DE', dateModified: DATE, isPartOf: { '@id': B + '/#website' }, about: 'ADHS bei Erwachsenen' },
+      { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }],
+    body: `<section class="ph"><div class="wrap">${crumbs(bc)}<span class="eyebrow">Selbsttest</span><h1>ADHS-Test für Erwachsene</h1><p class="lede">25 Fragen, etwa zehn Minuten, kostenlos und ohne Anmeldung. Das Ergebnis ist eine Orientierung für das Gespräch mit Fachleuten und keine Diagnose.</p></div></section>
+<section class="sec"><div class="wrap layout" style="padding:0">
+  <article class="prose">
+    <div class="box box--warn"><b>Bitte vorab:</b> Dieser Test ist kein validiertes Diagnoseinstrument. Er gibt Dir eine erste Einordnung. Eine Diagnose stellen nur Fachleute. Wenn es Dir gerade nicht gut geht: Telefonseelsorge 116 123 (kostenlos), im Notfall 112.</div>
+    <div id="adhstest" class="adhstest"><noscript><p>Für den Test wird JavaScript benötigt. Alternativ findest Du die Merkmale im Artikel <a href="/artikel/adhs-bei-erwachsenen/">ADHS bei Erwachsenen</a>.</p></noscript></div>
+    <h2 id="aufbau">Wie der Test aufgebaut ist</h2>
+    <p>Der Test hat vier Teile. Die ersten beiden fragen nach Aufmerksamkeit und Organisation sowie nach Unruhe und Impulsivität, je neun Aussagen. Das sind die beiden Kernbereiche, in denen Fachleute ADHS beschreiben. Teil drei fragt nach der Kindheit, Teil vier nach den Auswirkungen im Alltag. Die Formulierungen sind eigene Alltagsformulierungen der Redaktion. Der Test ist nicht der WHO-Fragebogen ASRS und nicht wissenschaftlich normiert.</p>
+    <h2 id="auswertung">So wird ausgewertet</h2>
+    <p>Gezählt werden pro Bereich die Aussagen, die Du mit „oft“ oder „sehr oft“ beantwortest. Nach dem NDR-Ratgeber müssen bei Erwachsenen für eine Diagnose aktuell mindestens fünf Symptome pro Kategorie (Unaufmerksamkeit oder Hyperaktivität/Impulsivität) über mindestens sechs Monate vorhanden sein. Daran orientiert sich die Einordnung:</p>
+    <ul><li><b>Fünf oder mehr</b> in einem Bereich: deutliche Hinweise, Abklärung sinnvoll</li><li><b>Drei bis vier:</b> einzelne Hinweise</li><li><b>Weniger als drei:</b> wenige Hinweise</li></ul>
+    <p>Die Fragen zu Kindheit und Alltag helfen bei der Einordnung, verändern die Einstufung aber nicht. Für eine Diagnose zählt, dass Symptome schon in der Kindheit bestanden und im Alltag spürbar beeinträchtigen.</p>
+    <h2 id="fachleute">Was Fachleute zusätzlich tun</h2>
+    <p>Laut NDR-Ratgeber nutzen Fachleute Fragebögen wie die Wender-Utah-Rating-Scale für die Rückschau auf die Kindheit und die von der WHO entwickelte ASRS für die aktuellen Beschwerden. Dazu kommen ein ausführliches Gespräch und eine körperliche Untersuchung, teils mit Blutuntersuchung, EKG oder EEG, um Erkrankungen wie Schilddrüsenerkrankungen, Epilepsie oder Eisenmangel auszuschließen. Geprüft wird auch, ob Begleiterkrankungen vorliegen oder ob eine andere Störung die Beschwerden erklärt. Den genauen Ablauf erklärt der Artikel <a href="/artikel/adhs-diagnose-erwachsene/">ADHS-Diagnose bei Erwachsenen</a>.</p>
+    <h2 id="andere">Warum ähnliche Beschwerden nicht immer ADHS sind</h2>
+    <p>Konzentrationsprobleme, Unruhe und Vergesslichkeit können viele Ursachen haben, zum Beispiel Schlafmangel, anhaltender Stress, Depressionen oder Angststörungen. Umgekehrt treten bei Erwachsenen mit ADHS häufig Begleiterkrankungen auf, nach ADHS Deutschland unter anderem Angststörungen, Depressionen und Schlafstörungen. Deshalb gehört die Abklärung in Fachhände. Mehr dazu in <a href="/artikel/adhs-und-schlaf/">ADHS und Schlaf</a> und <a href="/artikel/audhs-autismus-und-adhs/">AuDHS</a>.</p>
+    <h2 id="weiter">Wie es nach dem Test weitergehen kann</h2>
+    <ul><li>Lies, <a href="/artikel/adhs-und-krankenkasse/">wer ADHS bei Erwachsenen abklärt und was die Kasse zahlt</a></li><li>Sprich mit Deiner Hausärztin oder Deinem Hausarzt und bitte um eine Überweisung</li><li>Wenn Du Dich im Alltag begleiten lassen möchtest: <a href="/begleitung/">Begleitung mit Angie</a>, das Erstgespräch ist kostenlos. Sie ersetzt keine Diagnostik und keine Therapie.</li></ul>
+    <h2 id="fragen">Häufige Fragen</h2>
+    ${faqHtml(faq)}
+    <h2 id="quellen">Quellen</h2>
+    <div class="src"><ol>${[SX.ndr, SX.adhskomor, SX.barmer].map((s) => `<li><a href="${s.u}" rel="noopener" target="_blank">${esc(s.t)}</a></li>`).join('')}</ol><p>Der Fragebogen selbst ist eine eigene Formulierung der Redaktion und kein Teil dieser Quellen.</p></div>
+    <p class="disc">Dieser Test dient der Information. Er ersetzt keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise: Telefonseelsorge 116 123 (kostenlos), Notruf 112.</p>
+  </article>
+  <aside><div class="toc"><b>Inhalt</b><a href="#aufbau">Aufbau</a><a href="#auswertung">Auswertung</a><a href="#fachleute">Was Fachleute tun</a><a href="#andere">Andere Ursachen</a><a href="#weiter">Wie es weitergeht</a><a href="#fragen">Häufige Fragen</a><a href="#quellen">Quellen</a></div>
+  <div class="side-cta"><h4>Du willst das nicht allein sortieren?</h4><p>Angie begleitet Dich 1:1 online. Das Erstgespräch ist kostenlos.</p><a class="btn" href="/begleitung/">Zur Begleitung</a></div></aside>
+</div></section>
+<script src="/assets/test.js?v=1" defer></script>` });
+}
+
 /* ---------- REDAKTION ---------- */
 {
   const bc = [['/', 'Start'], ['/redaktion/', 'Redaktion und Quellen']];
@@ -320,7 +367,7 @@ layout({ p: '/datenschutz/', title: 'Datenschutz | ADHS Begleitung', desc: 'Date
 
 /* ---------- Technik ---------- */
 wr('search-index.json', JSON.stringify(A.map((a) => ({ t: a.title, d: a.desc, c: catBy[a.cat].name, u: `/artikel/${a.slug}/`, k: a.sections.map((s) => s[1]).join(' ') + ' ' + a.faq.map((f) => f[0]).join(' ') }))));
-const urls = ['/', ...CATS.filter((c) => artsOf(c.slug).length).map((c) => `/thema/${c.slug}/`), ...A.map((a) => `/artikel/${a.slug}/`), '/glossar/', '/begleitung/', '/podcast/', '/redaktion/', '/kontakt/', '/impressum/', '/datenschutz/'];
+const urls = ['/', ...CATS.filter((c) => artsOf(c.slug).length).map((c) => `/thema/${c.slug}/`), ...A.map((a) => `/artikel/${a.slug}/`), '/glossar/', '/adhs-test/', '/begleitung/', '/podcast/', '/redaktion/', '/kontakt/', '/impressum/', '/datenschutz/'];
 wr('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${B}${u}</loc><lastmod>${DATE}</lastmod><priority>${u === '/' ? '1.0' : u.startsWith('/artikel/') ? '0.9' : '0.6'}</priority></url>`).join('\n')}\n</urlset>\n`);
 wr('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${B}/sitemap.xml\n`);
 wr('llms.txt', `# ADHS Begleitung\n\n> Quellenbasierte Informationen zu ADHS bei Erwachsenen (erkennen, Diagnose, Behandlung, Alltag, Gefühle, Beziehung, Arbeit) und persönliche Begleitung mit Angie (Coaching, keine Therapie). Herausgeber: BA Entertainment, Alleestraße 15, 42781 Haan. Kontakt: info@cogether.de. Stand: 09.11.2026.\n\n## Artikel\n\n${A.map((a) => `- [${a.title}](${B}/artikel/${a.slug}/): ${a.desc}`).join('\n')}\n\n## Weitere Seiten\n\n- [Glossar](${B}/glossar/)\n- [Begleitung mit Angie](${B}/begleitung/)\n- [Podcast Gedankenkotze](${B}/podcast/)\n- [Redaktion und Quellen](${B}/redaktion/)\n`);
