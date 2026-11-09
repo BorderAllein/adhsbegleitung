@@ -38,7 +38,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" co
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=12">
+<link rel="stylesheet" href="/assets/site.css?v=13">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 </head>
@@ -62,7 +62,8 @@ ${body}
     <div><div class="logo" style="margin-bottom:1rem"><img class="logo__img" src="/assets/img/logo.png" width="84" height="84" alt="" loading="lazy"><span><b style="color:#fff">ADHS Begleitung</b></span></div><p style="max-width:36ch">Verständliche Informationen zu ADHS, mit Quellen. Dazu persönliche Begleitung mit Angie.</p></div>
     <div><h4>Themen</h4>${CATS.map((c) => `<a href="/thema/${c.slug}/">${c.name}</a>`).join('')}</div>
     <div><h4>Angebot</h4><a href="/begleitung/">Begleitung mit Angie</a><a href="/podcast/">Podcast Gedankenkotze</a><a href="/glossar/">Glossar</a><a href="/redaktion/">Redaktion und Quellen</a><a href="/kontakt/">Kontakt</a></div>
-    <div><h4>Rechtliches</h4><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a><a href="https://cogether.de/">Teil von CoGether</a></div>
+    <div><h4>Rechtliches</h4><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
+    <div><h4>Die CoGether-Welt</h4><a href="https://cogether.de/" rel="noopener">CoGether, Coaching</a><a href="https://cogether.de/coach-angie/" rel="noopener">Angie bei CoGether</a><a href="https://cogether-software.de/" rel="noopener">Software für Coaches</a><a href="https://business.cogether.de/" rel="noopener">Für Organisationen</a><a href="https://guidanceobservatory.com/" rel="noopener">Guidance Observatory</a><a href="https://gedankenkotze.de/" rel="noopener">Podcast Gedankenkotze</a></div>
   </div>
   <p class="ft__sos"><b>Wichtig:</b> Die Inhalte dienen der Information und ersetzen keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise erreichst Du die Telefonseelsorge kostenlos unter <b>116 123</b>, im Notfall den Notruf <b>112</b>.</p>
   <div class="ft__b"><span>© <span id="y"></span> BA Entertainment · ADHS Begleitung</span><span>Stand: 09.11.2026</span></div>

@@ -246,3 +246,4 @@ h1,h2,h3,h4{font-weight:600;letter-spacing:-.015em}
   .eps a{grid-template-columns:1fr auto;gap:.3rem 1rem}.eps time{grid-column:1/-1}.eps__p{display:none}
 }
 .blobph__tag{color:var(--ink)}.blobph__tag small{color:var(--mute)}
+@media(min-width:1001px){.ft__g{grid-template-columns:1.3fr 1fr 1fr 1fr 1fr}}
