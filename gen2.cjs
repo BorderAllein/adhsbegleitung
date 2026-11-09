@@ -13,7 +13,7 @@ const artsOf = (slug) => A.filter((a) => a.cat === slug);
 const artBy = Object.fromEntries(A.map((a) => [a.slug, a]));
 const SEARCH_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>';
 
-const NAV = [['/thema/erkennen/', 'ADHS erkennen'], ['/thema/diagnose/', 'Diagnose'], ['/thema/behandlung/', 'Behandlung'], ['/thema/alltag/', 'Alltag'], ['/glossar/', 'Glossar']];
+const NAV = [['/thema/erkennen/', 'ADHS erkennen'], ['/thema/diagnose/', 'Diagnose'], ['/thema/behandlung/', 'Behandlung'], ['/thema/alltag/', 'Alltag'], ['/podcast/', 'Podcast'], ['/glossar/', 'Glossar']];
 
 function layout({ p, title, desc, schema = [], noindex = false, body }) {
   const url = B + p;
@@ -38,7 +38,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" co
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=10">
+<link rel="stylesheet" href="/assets/site.css?v=12">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 </head>
@@ -61,7 +61,7 @@ ${body}
   <div class="ft__g">
     <div><div class="logo" style="margin-bottom:1rem"><img class="logo__img" src="/assets/img/logo.png" width="84" height="84" alt="" loading="lazy"><span><b style="color:#fff">ADHS Begleitung</b></span></div><p style="max-width:36ch">Verständliche Informationen zu ADHS, mit Quellen. Dazu persönliche Begleitung mit Angie.</p></div>
     <div><h4>Themen</h4>${CATS.map((c) => `<a href="/thema/${c.slug}/">${c.name}</a>`).join('')}</div>
-    <div><h4>Angebot</h4><a href="/begleitung/">Begleitung mit Angie</a><a href="/glossar/">Glossar</a><a href="/redaktion/">Redaktion und Quellen</a><a href="/kontakt/">Kontakt</a></div>
+    <div><h4>Angebot</h4><a href="/begleitung/">Begleitung mit Angie</a><a href="/podcast/">Podcast Gedankenkotze</a><a href="/glossar/">Glossar</a><a href="/redaktion/">Redaktion und Quellen</a><a href="/kontakt/">Kontakt</a></div>
     <div><h4>Rechtliches</h4><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a><a href="https://cogether.de/">Teil von CoGether</a></div>
   </div>
   <p class="ft__sos"><b>Wichtig:</b> Die Inhalte dienen der Information und ersetzen keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise erreichst Du die Telefonseelsorge kostenlos unter <b>116 123</b>, im Notfall den Notruf <b>112</b>.</p>
@@ -124,7 +124,12 @@ layout({
   </div>
 </div></section>
 
-<section class="sec sec--soft"><div class="wrap grid g2" style="align-items:center;gap:3rem">
+<section class="sec sec--soft"><div class="wrap podteaser">
+  <div class="podteaser__img"><img src="/assets/img/podcast-cover.jpg" alt="Podcast-Cover Gedankenkotze mit Angie" width="800" height="800" loading="lazy"></div>
+  <div class="prose"><span class="eyebrow">Der Podcast</span><h2 style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin-bottom:1rem">Gedankenkotze: Angie spricht aus, was sonst keiner sagt.</h2><p>Der ehrliche ADHS-Podcast über Reizüberflutung, Gedankenchaos, Erschöpfung und Masking. Echt, nah, ungefiltert, mit inzwischen ${require('./content/podcast.json').count} Folgen.</p><p><a class="btn" href="/podcast/">Zum Podcast</a> <a class="btn btn--o" href="https://open.spotify.com/show/0J8pt5j1CY8cmqYdGvmWgO" target="_blank" rel="noopener">Auf Spotify hören</a></p></div>
+</div></section>
+
+<section class="sec"><div class="wrap grid g2" style="align-items:center;gap:3rem">
   <div class="prose"><span class="eyebrow">Unser Anspruch</span><h2 style="font-size:2rem;margin-bottom:1rem">Qualität vor Menge</h2><p>Jeder Artikel nennt seine Quellen. Zahlen übernehmen wir nur, wenn wir sie belegen können. Wir geben keine medizinischen Empfehlungen und ersetzen weder Diagnostik noch Behandlung.</p><p><a class="btn btn--o" href="/redaktion/">Redaktion und Quellen</a></p></div>
   <div class="cat" style="cursor:default"><span class="cat__i">A</span><h3>Persönliche Begleitung mit Angie</h3><p>Wenn Wissen allein nicht reicht: Angie begleitet Menschen mit ADHS, Angehörige und Eltern, online und 1:1. Das Erstgespräch ist kostenlos.</p><p style="margin-top:1.2rem"><a class="btn" href="/begleitung/">Zur Begleitung</a></p></div>
 </div></section>`,
@@ -189,7 +194,7 @@ for (const a of A) {
 <section class="sec"><div class="wrap layout" style="padding:0">
   <div class="prose">
     <h2 style="margin-top:0">Worum es geht</h2>
-    <p>Angie ist Mentorin, Co- und Wegbegleiterin bei CoGether und Stimme des Podcasts „Gedankenkotze“. Sie begleitet aus eigenem Alltag mit AD(H)S, mit langjähriger Führungserfahrung, Erfahrung in der Schulung von Führungspersonal und zahlreichen Weiterbildungen.</p><p>Angie lebt außerdem mit ME/CFS und Fibromyalgie. Sie kennt es aus eigener Erfahrung, Kraft immer wieder neu sammeln zu müssen, und weiß, was es heißt, den Alltag trotz allem zu gestalten. <a href="/#angie">Angies Geschichte lesen</a></p>
+    <p>Angie ist Mentorin, Co- und Wegbegleiterin bei CoGether und Stimme des Podcasts <a href="/podcast/">„Gedankenkotze“</a>. Sie begleitet aus eigenem Alltag mit AD(H)S, mit langjähriger Führungserfahrung, Erfahrung in der Schulung von Führungspersonal und zahlreichen Weiterbildungen.</p><p>Angie lebt außerdem mit ME/CFS und Fibromyalgie. Sie kennt es aus eigener Erfahrung, Kraft immer wieder neu sammeln zu müssen, und weiß, was es heißt, den Alltag trotz allem zu gestalten. <a href="/#angie">Angies Geschichte lesen</a></p>
     <p>Sie hört zu, fragt nach, teilt Wissen und eigene Erfahrungen als Angebot und sagt Dir auch, wenn ihr etwas auffällt. Du musst Dich nicht erklären und nicht funktionieren.</p>
     <h2>Themen</h2><ul><li>ADHS und Neurodivergenz im Alltag, ohne dass eine Diagnose Dich definiert</li><li>Überforderung, Reizüberflutung und Gedankenchaos</li><li>Grenzen und Bedürfnisse früher wahrnehmen</li><li>Beziehungen und wiederkehrende Konflikte</li><li>Selbstwert und Vertrauen in Dich selbst</li></ul>
     <h2>Was enthalten ist (Einzeltermin, 149 €)</h2><ul><li>60 Minuten 1:1 mit Angie</li><li>Persönliches Premium-Handout zu Deiner Stunde</li><li>Persönliche Learning Unit zur Vertiefung</li><li>Eigener Bereich bei CoGether und Austausch zwischen den Terminen</li></ul>
@@ -198,6 +203,78 @@ for (const a of A) {
   </div>
   <aside><div class="side-cta" style="margin-top:0"><img src="/assets/img/Coach-Angie.jpeg" alt="Angie" width="421" height="530" style="border-radius:8px;margin-bottom:1rem;aspect-ratio:4/3;object-fit:cover;object-position:center 20%"><h4>Kostenloses Erstgespräch</h4><p>Online per Video, unverbindlich und ohne Druck.</p><a class="btn" href="${BOOK}">Erstgespräch buchen</a></div></aside>
 </div></section>` });
+}
+
+/* ---------- PODCAST ---------- */
+{
+  const PD = JSON.parse(fs.readFileSync(root + 'content/podcast.json', 'utf8'));
+  const SPOT = 'https://open.spotify.com/show/0J8pt5j1CY8cmqYdGvmWgO';
+  const GK = 'https://gedankenkotze.de/';
+  const dDe = (s) => { const [y, m, d] = s.split('-'); return `${d}.${m}.${y}`; };
+  const bc = [['/', 'Start'], ['/podcast/', 'Podcast']];
+  const faq = [
+    ['Worum geht es im Podcast Gedankenkotze?', 'Angie spricht ehrlich über das Leben mit ADHS und Hochsensibilität: Reizüberflutung, Gedankenchaos, Overthinking, Erschöpfung, Masking, Beziehungen und Selbstwert. Persönlich, ohne Perfektionsdruck und mit Humor.'],
+    ['Wer spricht im Podcast?', 'Angie, Mentorin und Wegbegleiterin bei CoGether. Sie lebt selbst mit ADHS und erzählt aus eigener Erfahrung.'],
+    ['Wo kann ich den Podcast hören?', 'Auf Spotify und über gedankenkotze.de. Dort findest Du alle Folgen mit Suche nach Themen, zu vielen Folgen auch mit Transkript.'],
+    ['Ersetzt der Podcast Beratung oder Therapie?', 'Nein. Der Podcast gibt persönliche Einblicke und Anregungen. Er ersetzt weder eine Diagnose noch eine ärztliche oder psychotherapeutische Behandlung. Medizinische Fragen gehören in ärztliche Hände.'],
+    ['Wie finde ich eine passende erste Folge?', 'Starte bei dem Thema, das Dich gerade am meisten beschäftigt, etwa Erschöpfung, Grenzen oder Masking. Auf gedankenkotze.de gibt es dafür eine Seite „Start hier“ mit Einstiegsfolgen.'],
+  ];
+  const topics = [
+    ['Reizüberflutung und Hochsensibilität', 'Wenn die Welt zu laut ist und das Herz zu voll.', '/artikel/adhs-bei-erwachsenen/'],
+    ['Erschöpfung und Schlaf', 'Die Müdigkeit, die kein Schlaf heilt, und das Funktionieren trotzdem.', '/artikel/adhs-und-schlaf/'],
+    ['Masking und AuDHS', 'Was davon bin ich eigentlich, und was Anpassung?', '/artikel/audhs-autismus-und-adhs/'],
+    ['Frauen und späte Diagnose', 'Warum viele erst als Erwachsene erkennen, was los war.', '/artikel/adhs-bei-frauen/'],
+    ['Medikamente und Alltag', 'Erfahrungen aus erster Hand, ohne Empfehlung und ohne Bewertung.', '/artikel/adhs-medikamente-ueberblick/'],
+    ['Zeit, Gedanken, Gedächtnis', 'Gedankensprünge, Zeitblindheit und das absurde ADHS-Gedächtnis.', '/artikel/zeitblindheit-adhs/'],
+  ];
+  layout({ p: '/podcast/', title: 'ADHS-Podcast Gedankenkotze mit Angie: Folgen, Themen, hören | ADHS Begleitung',
+    desc: 'Gedankenkotze, der ehrliche ADHS-Podcast mit Angie: ' + PD.count + ' Folgen über ADHS, Hochsensibilität, Overthinking, Erschöpfung und Masking. Jetzt auf Spotify hören.',
+    schema: [bcSchema(bc),
+      { '@type': 'PodcastSeries', '@id': B + '/podcast/#series', name: 'Gedankenkotze – Der ADHS-Podcast', url: GK, description: 'Ehrlicher Podcast über das Leben mit ADHS und Hochsensibilität mit Angie.', inLanguage: 'de', image: B + '/assets/img/podcast-cover.jpg', numberOfEpisodes: PD.count, startDate: '2022-11-29', publisher: { '@id': B + '/#org' }, sameAs: [SPOT, GK], webFeed: 'https://anchor.fm/s/99bf4124/podcast/rss', genre: ['ADHS', 'Hochsensibilität', 'Persönlichkeitsentwicklung'] },
+      { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }],
+    body: `<section class="hero hero--pod"><div class="wrap hero__g"><div>
+  <span class="eyebrow">Der Podcast</span>
+  <h1>Gedankenkotze: der ehrliche ADHS-Podcast mit Angie</h1>
+  <p class="lede">Reizüberflutung, Gedankenchaos, Erschöpfung, Masking: Angie spricht über das, was im Leben mit ADHS selten laut gesagt wird. Echt, nah, ungefiltert.</p>
+  <div class="cta-row"><a class="btn" href="${SPOT}" target="_blank" rel="noopener">Auf Spotify hören</a><a class="btn btn--l" href="${GK}" target="_blank" rel="noopener">Alle Folgen und Transkripte</a></div>
+</div>
+<div class="blobph blobph--sq"><div class="blobph__img"><img src="/assets/img/podcast-cover.jpg" alt="Podcast-Cover Gedankenkotze: Angie mit Kopfhörern am Mikrofon, echt. nah. roh." width="800" height="800" fetchpriority="high"></div></div>
+</div></section>
+
+<section class="stats"><div class="wrap stats__g">
+  <div><b>${PD.count}</b><span>Folgen</span></div>
+  <div><b>seit 2022</b><span>Erste Folge im November 2022</span></div>
+  <div><b>24+ Std.</b><span>Hörzeit insgesamt</span></div>
+  <div><b>Kostenlos</b><span>auf Spotify und gedankenkotze.de</span></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <div class="sec__h"><div><h2>Worum es geht</h2><p>Sechs Themenfelder, die sich durch die Folgen ziehen. Zu jedem gibt es auf dieser Seite einen Artikel mit Quellen zum Weiterlesen.</p></div></div>
+  <div class="grid g3">${topics.map(([h, t, u]) => `<a class="cat" href="${u}"><h3>${h}</h3><p>${t}</p><small>Artikel dazu lesen</small></a>`).join('')}</div>
+</div></section>
+
+<section class="sec sec--soft"><div class="wrap">
+  <div class="sec__h"><div><h2>Neueste Folgen</h2><p>Die sechs aktuellsten Folgen. Alle ${PD.count} Folgen mit Suche findest Du auf gedankenkotze.de.</p></div><a class="btn btn--o" href="${GK}folgen/" target="_blank" rel="noopener">Alle Folgen ansehen</a></div>
+  <ol class="eps">${PD.eps.map((e) => `<li><a href="${e.u}" target="_blank" rel="noopener"><time datetime="${e.date}">${dDe(e.date)}</time><span class="eps__t">${esc(e.t)}</span><span class="eps__m">${e.min} Min.</span><span class="eps__p" aria-hidden="true">Anhören</span></a></li>`).join('')}</ol>
+</div></section>
+
+<section class="sec"><div class="wrap story story--pod">
+  <div class="prose">
+    <span class="eyebrow">Die Stimme dahinter</span>
+    <h2 style="font-size:clamp(1.7rem,2.8vw,2.3rem);margin-bottom:1.2rem">Angie erzählt aus eigener Erfahrung.</h2>
+    <p>Angie lebt mit ADHS, mit ME/CFS und mit Fibromyalgie. Sie weiß, wie es ist, sich Kraft immer wieder neu zusammenzusuchen und trotzdem weiterzumachen. Im Podcast teilt sie, was sie dabei erlebt, und lädt Dich ein, Dich darin wiederzufinden.</p>
+    <p>Angie ist Mentorin und Wegbegleiterin bei CoGether und begleitet Menschen mit ADHS, Angehörige und Eltern, online und 1:1. Der Podcast ist der offene Raum, die Begleitung der persönliche.</p>
+    <p><a class="btn" href="/begleitung/">Zur Begleitung mit Angie</a> <a class="btn btn--o" href="/#angie">Angies Geschichte</a></p>
+  </div>
+  <div class="box box--soft"><h3 style="margin:0 0 .8rem">So hörst Du</h3><ul class="plat"><li><a href="${SPOT}" target="_blank" rel="noopener"><b>Spotify</b><span>Folgen direkt abspielen</span></a></li><li><a href="${GK}" target="_blank" rel="noopener"><b>gedankenkotze.de</b><span>Suche, Themen und Transkripte</span></a></li><li><a href="https://anchor.fm/s/99bf4124/podcast/rss" target="_blank" rel="noopener"><b>RSS-Feed</b><span>für Deine Podcast-App</span></a></li></ul></div>
+</div></section>
+
+<section class="sec sec--soft"><div class="wrap--n" style="margin:0 auto">
+  <div class="sec__h"><div><h2>Häufige Fragen zum Podcast</h2></div></div>
+  ${faqHtml(faq)}
+  <div class="box box--warn" style="margin-top:1.6rem"><b>Hinweis:</b> Der Podcast schildert persönliche Erfahrungen und ersetzt keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung.</div>
+</div></section>
+${band('Wenn Zuhören nicht reicht', 'Im kostenlosen Erstgespräch lernst Du Angie persönlich kennen, online und unverbindlich.', 'Erstgespräch buchen', BOOK)}` });
 }
 
 /* ---------- REDAKTION ---------- */
@@ -223,10 +300,10 @@ layout({ p: '/datenschutz/', title: 'Datenschutz | ADHS Begleitung', desc: 'Date
 
 /* ---------- Technik ---------- */
 wr('search-index.json', JSON.stringify(A.map((a) => ({ t: a.title, d: a.desc, c: catBy[a.cat].name, u: `/artikel/${a.slug}/`, k: a.sections.map((s) => s[1]).join(' ') + ' ' + a.faq.map((f) => f[0]).join(' ') }))));
-const urls = ['/', ...CATS.filter((c) => artsOf(c.slug).length).map((c) => `/thema/${c.slug}/`), ...A.map((a) => `/artikel/${a.slug}/`), '/glossar/', '/begleitung/', '/redaktion/', '/kontakt/', '/impressum/', '/datenschutz/'];
+const urls = ['/', ...CATS.filter((c) => artsOf(c.slug).length).map((c) => `/thema/${c.slug}/`), ...A.map((a) => `/artikel/${a.slug}/`), '/glossar/', '/begleitung/', '/podcast/', '/redaktion/', '/kontakt/', '/impressum/', '/datenschutz/'];
 wr('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${B}${u}</loc><lastmod>${DATE}</lastmod><priority>${u === '/' ? '1.0' : u.startsWith('/artikel/') ? '0.9' : '0.6'}</priority></url>`).join('\n')}\n</urlset>\n`);
 wr('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${B}/sitemap.xml\n`);
-wr('llms.txt', `# ADHS Begleitung\n\n> Quellenbasierte Informationen zu ADHS bei Erwachsenen (erkennen, Diagnose, Behandlung, Alltag, Gefühle, Beziehung, Arbeit) und persönliche Begleitung mit Angie (Coaching, keine Therapie). Herausgeber: BA Entertainment, Alleestraße 15, 42781 Haan. Kontakt: info@cogether.de. Stand: 09.11.2026.\n\n## Artikel\n\n${A.map((a) => `- [${a.title}](${B}/artikel/${a.slug}/): ${a.desc}`).join('\n')}\n\n## Weitere Seiten\n\n- [Glossar](${B}/glossar/)\n- [Begleitung mit Angie](${B}/begleitung/)\n- [Redaktion und Quellen](${B}/redaktion/)\n`);
+wr('llms.txt', `# ADHS Begleitung\n\n> Quellenbasierte Informationen zu ADHS bei Erwachsenen (erkennen, Diagnose, Behandlung, Alltag, Gefühle, Beziehung, Arbeit) und persönliche Begleitung mit Angie (Coaching, keine Therapie). Herausgeber: BA Entertainment, Alleestraße 15, 42781 Haan. Kontakt: info@cogether.de. Stand: 09.11.2026.\n\n## Artikel\n\n${A.map((a) => `- [${a.title}](${B}/artikel/${a.slug}/): ${a.desc}`).join('\n')}\n\n## Weitere Seiten\n\n- [Glossar](${B}/glossar/)\n- [Begleitung mit Angie](${B}/begleitung/)\n- [Podcast Gedankenkotze](${B}/podcast/)\n- [Redaktion und Quellen](${B}/redaktion/)\n`);
 wr('favicon.svg', `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="18" fill="#A85433"/><text x="32" y="45" text-anchor="middle" font-family="Arial" font-weight="800" font-size="38" fill="#fff">A</text></svg>`);
 wr('CNAME', 'adhsbegleitung.de\n');
 wr('404.html', `<!doctype html><meta charset="utf-8"><title>Seite nicht gefunden</title><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/assets/site.css"><body><main class="wrap" style="padding:6rem 0"><span class="eyebrow">404</span><h1>Diese Seite gibt es nicht.</h1><p class="lede" style="margin:1rem 0 2rem">Vielleicht hilft die Suche auf der Startseite.</p><a class="btn" href="/">Zur Startseite</a></main></body>`);
