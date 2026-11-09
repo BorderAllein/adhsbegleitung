@@ -38,7 +38,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" co
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=17">
+<link rel="stylesheet" href="/assets/site.css?v=18">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 </head>
@@ -63,7 +63,7 @@ ${body}
     <div><h4>Themen</h4>${CATS.map((c) => `<a href="/thema/${c.slug}/">${c.name}</a>`).join('')}</div>
     <div><h4>Angebot</h4><a href="/begleitung/">Begleitung mit Angie</a><a href="/adhs-test/">ADHS-Test</a><a href="/podcast/">Podcast Gedankenkotze</a><a href="/glossar/">Glossar</a><a href="/redaktion/">Redaktion und Quellen</a><a href="/kontakt/">Kontakt</a></div>
     <div><h4>Rechtliches</h4><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a></div>
-    <div><h4>Die CoGether-Welt</h4><a href="https://cogether.de/" rel="noopener">CoGether, Coaching</a><a href="https://cogether.de/coach-angie/" rel="noopener">Angie bei CoGether</a><a href="https://cogether-software.de/" rel="noopener">Software für Coaches</a><a href="https://business.cogether.de/" rel="noopener">Für Organisationen</a><a href="https://guidanceobservatory.com/" rel="noopener">Guidance Observatory</a><a href="https://gedankenkotze.de/" rel="noopener">Podcast Gedankenkotze</a></div>
+    <div><h4>Die CoGether-Welt</h4><a href="https://cogether.de/" rel="noopener">CoGether, Coaching</a><a href="https://cogether.de/coach-angie/" rel="noopener">Angie bei CoGether</a><a href="https://cogether-software.de/" rel="noopener">Software für Coaches</a><a href="https://business.cogether.de/" rel="noopener">Für Organisationen</a><a href="https://guidanceobservatory.com/" rel="noopener">Guidance Observatory</a><a href="https://gedankenkotze.de/" rel="noopener">Podcast Gedankenkotze</a><a href="https://borderallein.de/podcast/" rel="noopener">Podcast Border Allein</a></div>
   </div>
   <p class="ft__sos"><b>Wichtig:</b> Die Inhalte dienen der Information und ersetzen keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise erreichst Du die Telefonseelsorge kostenlos unter <b>116 123</b>, im Notfall den Notruf <b>112</b>.</p>
   <div class="ft__b"><span>© <span id="y"></span> BA Entertainment · ADHS Begleitung</span><span>Stand: 09.11.2026</span></div>
@@ -288,7 +288,7 @@ for (const a of A) {
     <p>Angie ist Mentorin und Wegbegleiterin bei CoGether und begleitet Menschen mit ADHS, Angehörige und Eltern, online und 1:1. Der Podcast ist der offene Raum, die Begleitung der persönliche.</p>
     <p><a class="btn" href="/begleitung/">Zur Begleitung mit Angie</a> <a class="btn btn--o" href="/#angie">Angies Geschichte</a></p>
   </div>
-  <div class="box box--soft"><h3 style="margin:0 0 .8rem">So hörst Du</h3><ul class="plat"><li><a href="${SPOT}" target="_blank" rel="noopener"><b>Spotify</b><span>Folgen direkt abspielen</span></a></li><li><a href="${GK}" target="_blank" rel="noopener"><b>gedankenkotze.de</b><span>Suche, Themen und Transkripte</span></a></li><li><a href="https://anchor.fm/s/99bf4124/podcast/rss" target="_blank" rel="noopener"><b>RSS-Feed</b><span>für Deine Podcast-App</span></a></li></ul></div>
+  <div class="box box--soft"><h3 style="margin:0 0 .8rem">So hörst Du</h3><ul class="plat"><li><a href="${SPOT}" target="_blank" rel="noopener"><b>Spotify</b><span>Folgen direkt abspielen</span></a></li><li><a href="${GK}" target="_blank" rel="noopener"><b>gedankenkotze.de</b><span>Suche, Themen und Transkripte</span></a></li><li><a href="https://borderallein.de/podcast/" target="_blank" rel="noopener"><b>Podcast Border Allein</b><span>Der zweite Podcast aus dem CoGether-Umfeld, von Sven</span></a></li><li><a href="https://anchor.fm/s/99bf4124/podcast/rss" target="_blank" rel="noopener"><b>RSS-Feed</b><span>für Deine Podcast-App</span></a></li></ul></div>
 </div></section>
 
 <section class="sec sec--soft"><div class="wrap--n" style="margin:0 auto">
