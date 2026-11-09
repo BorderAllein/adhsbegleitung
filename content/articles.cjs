@@ -202,6 +202,7 @@ const GLOSS = [
   ['Verhaltenstherapie', 'Eine Form der Psychotherapie, in der Strategien erlernt und gefestigt werden.'],
 ];
 const { A2, S2 } = require('./articles2.cjs');
-const today = new Date().toISOString().slice(0, 10);
-const ALL = A.concat(A2).filter((a) => !a.publishedAt || a.publishedAt <= today);
-module.exports = { A: ALL, CATS, GLOSS, S: { ...S, ...S2 } };
+const { A3, S3 } = require('./articles3.cjs');
+const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
+const ALL = A.concat(A2, A3).filter((a) => !a.publishedAt || a.publishedAt <= today);
+module.exports = { A: ALL, CATS, GLOSS, S: { ...S, ...S2, ...S3 } };

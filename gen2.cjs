@@ -178,9 +178,9 @@ for (const a of A) {
   layout({
     p: `/artikel/${a.slug}/`, title: `${a.title} | ADHS Begleitung`, desc: a.desc,
     schema: [bcSchema(bc),
-      { '@type': 'Article', headline: a.title, description: a.desc, inLanguage: 'de-DE', datePublished: DATE, dateModified: DATE, author: { '@id': B + '/#org' }, publisher: { '@id': B + '/#org' }, mainEntityOfPage: `${B}/artikel/${a.slug}/`, about: 'ADHS', citation: a.sources.map((s) => s.u) },
+      { '@type': 'Article', headline: a.title, description: a.desc, inLanguage: 'de-DE', datePublished: a.publishedAt || DATE, dateModified: a.publishedAt || DATE, author: { '@id': B + '/#org' }, publisher: { '@id': B + '/#org' }, mainEntityOfPage: `${B}/artikel/${a.slug}/`, about: 'ADHS', citation: a.sources.map((s) => s.u) },
       { '@type': 'FAQPage', mainEntity: a.faq.map(([q, an]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: an } })) }],
-    body: `<section class="ph"><div class="wrap">${crumbs(bc)}<span class="eyebrow">${c.name}</span><h1>${esc(a.title)}</h1><div class="meta"><span><b>Redaktion</b> ADHS Begleitung</span><span>Aktualisiert: 09.11.2026</span><span>${a.readMin} Min. Lesezeit</span></div></div></section>
+    body: `<section class="ph"><div class="wrap">${crumbs(bc)}<span class="eyebrow">${c.name}</span><h1>${esc(a.title)}</h1><div class="meta"><span><b>Redaktion</b> ADHS Begleitung</span><span>Aktualisiert: ${(a.publishedAt || DATE).split("-").reverse().join(".")}</span><span>${a.readMin} Min. Lesezeit</span></div></div></section>
 <div class="wrap layout">
   <article class="prose">
     <div class="short"><b>Kurz gesagt</b><p>${esc(a.short)}</p></div>
@@ -188,7 +188,7 @@ for (const a of A) {
     <h2 id="fragen">Häufige Fragen</h2>
     ${faqHtml(a.faq)}
     <h2 id="quellen">Quellen</h2>
-    <div class="src"><ol>${a.sources.map((s) => `<li><a href="${s.u}" rel="noopener" target="_blank">${esc(s.t)}</a></li>`).join('')}</ol><p>Alle Angaben beziehen sich auf den Stand der Quellen am 09.11.2026.</p></div>
+    <div class="src"><ol>${a.sources.map((s) => `<li><a href="${s.u}" rel="noopener" target="_blank">${esc(s.t)}</a></li>`).join('')}</ol><p>Alle Angaben beziehen sich auf den Stand der Quellen am ${(a.publishedAt || DATE).split("-").reverse().join(".")}.</p></div>
     <div class="author"><img src="/assets/img/angie-portrait.jpg" alt="Angie" width="84" height="84" loading="lazy"><div><h4>Redaktion ADHS Begleitung</h4><p>Die Artikel werden aus den genannten Fachquellen erstellt. Persönliche Begleitung bietet Angie an, Mentorin und Wegbegleiterin bei CoGether.</p></div></div>
     <p class="disc">Dieser Artikel dient der Information. Er ersetzt keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise: Telefonseelsorge 116 123 (kostenlos), Notruf 112.</p>
     ${cgBlock(a)}
