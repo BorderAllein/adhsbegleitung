@@ -201,4 +201,7 @@ const GLOSS = [
   ['Methylphenidat', 'Einer der zugelassenen Wirkstoffe bei ADHS. Die Verordnung erfolgt ärztlich.'],
   ['Verhaltenstherapie', 'Eine Form der Psychotherapie, in der Strategien erlernt und gefestigt werden.'],
 ];
-module.exports = { A, CATS, GLOSS, S };
+const { A2, S2 } = require('./articles2.cjs');
+const today = new Date().toISOString().slice(0, 10);
+const ALL = A.concat(A2).filter((a) => !a.publishedAt || a.publishedAt <= today);
+module.exports = { A: ALL, CATS, GLOSS, S: { ...S, ...S2 } };

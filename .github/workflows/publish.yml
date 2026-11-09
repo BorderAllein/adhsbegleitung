@@ -1,0 +1,34 @@
+name: Artikel veröffentlichen
+# Montag, Mittwoch, Freitag um 9 Uhr deutscher Zeit (zwei UTC-Zeiten für Sommer- und Winterzeit).
+on:
+  schedule:
+    - cron: '0 7 * * 1,3,5'
+    - cron: '0 8 * * 1,3,5'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Seite neu erzeugen (Artikel mit publishedAt bis heute erscheinen)
+        run: node gen2.cjs
+      - name: Änderungen veröffentlichen
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "adhsbegleitung-bot"
+            git config user.email "info@cogether.de"
+            git add -A
+            git commit -m "Geplante Veröffentlichung $(date -u +%F)"
+            git push
+            gh api -X POST repos/${{ github.repository }}/pages/builds || true
+          else
+            echo "Nichts zu veröffentlichen."
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}

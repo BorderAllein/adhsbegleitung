@@ -38,7 +38,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" co
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=14">
+<link rel="stylesheet" href="/assets/site.css?v=15">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 </head>
@@ -122,7 +122,7 @@ layout({
 
 <section class="sec"><div class="wrap">
   <div class="sec__h"><div><h2>Zuletzt aktualisiert</h2></div></div>
-  <div class="grid g3">${A.slice(0, 6).map(card).join('')}</div>
+  <div class="grid g3">${A.slice(-6).reverse().map(card).join('')}</div>
 </div></section>
 
 <section class="sec sec--soft"><div class="wrap podteaser">
@@ -150,6 +150,24 @@ for (const c of CATS) {
   });
 }
 
+
+/* ---------- CoGether-Verweise je Kategorie ---------- */
+const CG = 'https://cogether.de';
+const CG_EXTRA = {
+  erkennen: [['/wissen/adhs-bei-erwachsenen-symptome-diagnose-behandlung-alltag/', 'ADHS bei Erwachsenen bei CoGether'], ['/themen/adhs/', 'Alle Themen zu ADHS']],
+  diagnose: [['/wissen/adhs-test-erwachsene-habe-ich-adhs-anzeichen-selbsttest-und-diagnose/', 'ADHS-Test für Erwachsene bei CoGether'], ['/themen/adhs/', 'Alle Themen zu ADHS']],
+  behandlung: [['/adhs-coaching/', 'ADHS-Coaching bei CoGether'], ['/themen/adhs/', 'Alle Themen zu ADHS']],
+  alltag: [['/wissen/adhs-im-alltag-organisieren-struktur-zeitblindheit-und-reizueberflutung/', 'ADHS im Alltag organisieren bei CoGether'], ['/themen/adhs/', 'Alle Themen zu ADHS']],
+  gefuehle: [['/wissen/adhs-und-gefuehle-warum-emotionen-so-intensiv-sind-und-was-hilft/', 'ADHS und Gefühle bei CoGether'], ['/themen/burnout/', 'Burnout und Erschöpfung bei CoGether']],
+  beziehung: [['/themen/beziehungen/', 'Beziehungen und Grenzen bei CoGether'], ['/level-you-up/', 'Level You Up und Ungefiltert']],
+  arbeit: [['/themen/adhs/', 'Alle Themen zu ADHS'], ['https://business.cogether.de/', 'Level You Up für Organisationen']],
+  recht: [['/themen/adhs/', 'Alle Themen zu ADHS'], ['/kontakt/', 'Fragen? Kontakt bei CoGether']],
+};
+const cgBlock = (a) => {
+  const ex = (CG_EXTRA[a.cat] || []).map(([u, l]) => '<a href="' + (u.startsWith('http') ? u : CG + u) + '" rel="noopener">' + l + '</a>').join('');
+  return '<section class="cgblock"><h2 style="margin-top:3rem">Wie es weitergehen kann</h2><p>Wissen ist ein Anfang. Wenn Du Dich begleiten lassen möchtest: <b>Angie</b> ist Mentorin und Wegbegleiterin bei CoGether und bietet Mentoring, Einzelbegleitung und die Gruppe UNGEFILTERT an. Das Erstgespräch ist kostenlos.</p><div class="cgl"><a href="' + CG + '/mentoring/" rel="noopener">Mentoring bei CoGether</a><a href="' + CG + '/coach-angie/" rel="noopener">Angie bei CoGether</a><a href="' + BOOK + '" rel="noopener">Kostenloses Erstgespräch</a><a href="/podcast/">Podcast Gedankenkotze</a>' + ex + '</div></section>';
+};
+
 /* ---------- ARTIKEL ---------- */
 for (const a of A) {
   const c = catBy[a.cat];
@@ -171,6 +189,7 @@ for (const a of A) {
     <div class="src"><ol>${a.sources.map((s) => `<li><a href="${s.u}" rel="noopener" target="_blank">${esc(s.t)}</a></li>`).join('')}</ol><p>Alle Angaben beziehen sich auf den Stand der Quellen am 09.11.2026.</p></div>
     <div class="author"><img src="/assets/img/angie-portrait.jpg" alt="Angie" width="84" height="84" loading="lazy"><div><h4>Redaktion ADHS Begleitung</h4><p>Die Artikel werden aus den genannten Fachquellen erstellt. Persönliche Begleitung bietet Angie an, Mentorin und Wegbegleiterin bei CoGether.</p></div></div>
     <p class="disc">Dieser Artikel dient der Information. Er ersetzt keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise: Telefonseelsorge 116 123 (kostenlos), Notruf 112.</p>
+    ${cgBlock(a)}
     ${rel.length ? `<h2 style="margin-top:3rem">Weiterlesen</h2><div class="grid g2" style="margin-top:1rem">${rel.map(card).join('')}</div>` : ''}
   </article>
   <aside><div class="toc"><b>Inhalt</b>${a.sections.map(([id, h]) => `<a href="#${id}">${esc(h)}</a>`).join('')}<a href="#fragen">Häufige Fragen</a><a href="#quellen">Quellen</a></div>

@@ -247,3 +247,8 @@ h1,h2,h3,h4{font-weight:600;letter-spacing:-.015em}
 }
 .blobph__tag{color:var(--ink)}.blobph__tag small{color:var(--mute)}
 @media(min-width:1001px){.ft__g{grid-template-columns:1.3fr 1fr 1fr 1fr 1fr}}
+.cgblock{margin-top:2rem;padding:1.6rem;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;background:#fff}
+.cgblock h2{margin:0 0 .6rem!important;font-size:1.3rem}
+.cgl{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.cgl a{padding:.55rem 1rem;border:1.5px solid var(--blue);border-radius:6px;font:600 .88rem var(--head);color:var(--blue-d);text-decoration:none}
+.cgl a:hover{background:var(--blue);color:#fff}
