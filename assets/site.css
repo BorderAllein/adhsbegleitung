@@ -145,3 +145,18 @@ h1,h2,h3,h4{font-family:var(--head);font-weight:600;letter-spacing:-.01em}
 
 .story{display:grid;grid-template-columns:.8fr 1.2fr;gap:3.4rem;align-items:center}.chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem}.chips span{background:var(--peach);color:var(--blue-d);border-radius:999px;padding:.45rem 1rem;font:600 .85rem var(--head)}
 @media(max-width:1000px){.story{grid-template-columns:1fr;gap:2rem}}
+
+/* Großer Pfirsich-Bogen über Hero und Themen-Bereich */
+.area{position:relative;isolation:isolate;overflow:hidden}
+.area:before{content:"";position:absolute;z-index:-2;top:-14%;right:-4%;width:82%;height:112%;background:var(--peach);border-radius:44% 0 0 64% / 40% 0 0 62%}
+.hero:before,.hero:after{display:none}
+.hero{background:transparent}
+.blobph{width:min(470px,96%);justify-self:start;margin-left:-5.5rem}
+.blobph__tag{left:-4%}
+@media(max-width:1000px){.area:before{width:130%;right:-30%;top:-4%;height:100%;border-radius:36% 0 0 34% / 22% 0 0 18%}.blobph{margin-left:0;width:min(380px,90%)}}
+.blobph{width:min(440px,96%);margin-left:-2.2rem}
+.hero__g{grid-template-columns:1.1fr .9fr}
+.hero .lede{max-width:46ch}
+.hero h1{max-width:16ch}
+.search{max-width:520px}
+.hero h1{max-width:18ch}

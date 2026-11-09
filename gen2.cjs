@@ -38,7 +38,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" co
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=7">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 </head>
@@ -85,7 +85,7 @@ layout({
   p: '/', title: 'ADHS verständlich erklärt: Wissen, Diagnose, Alltag | ADHS Begleitung',
   desc: 'Klare, quellenbasierte Antworten zu ADHS bei Erwachsenen: erkennen, Diagnose, Behandlung, Alltag. Dazu persönliche Begleitung mit Angie.',
   schema: [{ '@type': 'CollectionPage', '@id': B + '/#webpage', url: B + '/', name: 'ADHS Begleitung', dateModified: DATE, inLanguage: 'de-DE' }],
-  body: `<section class="hero"><div class="wrap hero__g"><div>
+  body: `<div class="area"><section class="hero"><div class="wrap hero__g"><div>
   <span class="eyebrow">Wissen und Begleitung</span>
   <h1>ADHS verständlich erklärt. Klar, sachlich, mit Quellen.</h1>
   <p class="lede">Antworten auf die Fragen, die Erwachsene mit ADHS, ihre Angehörigen und Eltern wirklich stellen: von der Diagnose bis zum Alltag.</p>
@@ -98,7 +98,7 @@ layout({
 <section class="sec"><div class="wrap">
   <div class="sec__h"><div><h2>Themen</h2><p>Acht Bereiche, klar gegliedert. Wähle den, der zu Deiner Frage passt.</p></div></div>
   <div class="grid g4">${CATS.map((c) => { const n = artsOf(c.slug).length; return `<a class="cat" href="/thema/${c.slug}/"><span class="cat__i">${c.icon}</span><h3>${c.name}</h3><p>${c.desc}</p><small>${n ? n + (n === 1 ? ' Artikel' : ' Artikel') : 'Folgt in Kürze'}</small></a>`; }).join('')}</div>
-</div></section>
+</div></section></div>
 
 <section class="sec sec--soft"><div class="wrap">
   <div class="sec__h"><div><h2>Häufige Fragen</h2><p>Die Fragen, die wir am häufigsten beantworten.</p></div></div>
