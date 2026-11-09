@@ -22,7 +22,7 @@ function layout({ p, title, desc, schema = [], noindex = false, body }) {
     { '@type': 'WebSite', '@id': B + '/#website', url: B + '/', name: 'ADHS Begleitung', inLanguage: 'de-DE', publisher: { '@id': B + '/#org' }, potentialAction: { '@type': 'SearchAction', target: B + '/?q={q}', 'query-input': 'required name=q' } },
     ...schema,
   ];
-  const logo = hasLogo ? `<img src="/assets/img/logo.${hasLogo}" alt="ADHS Begleitung">` : `<span class="logo__m">A</span><span><b>ADHS Begleitung</b><small>Wissen, Orientierung, Begleitung</small></span>`;
+  const logo = `<img class="logo__img" src="/assets/img/logo.png" width="56" height="56" alt=""><span><b>ADHS Begleitung</b><small>Wissen, Orientierung, Begleitung</small></span>`;
   const html = `<!doctype html>
 <html lang="de">
 <head>
@@ -32,13 +32,13 @@ function layout({ p, title, desc, schema = [], noindex = false, body }) {
 <meta name="description" content="${esc(desc)}">
 ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" content="index, follow, max-image-preview:large">\n'}<meta property="og:locale" content="de_DE"><meta property="og:type" content="website"><meta property="og:site_name" content="ADHS Begleitung">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url}">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://adhsbegleitung.de/assets/img/logo.png"><meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#0A1930">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/img/icon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/assets/img/icon-192.png">
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=5">
+<link rel="stylesheet" href="/assets/site.css?v=6">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 </head>
@@ -59,7 +59,7 @@ ${body}
 </main>
 <footer class="ft"><div class="wrap">
   <div class="ft__g">
-    <div><div class="logo" style="color:#fff;margin-bottom:1rem"><span class="logo__m">A</span><span><b style="color:#fff">ADHS Begleitung</b></span></div><p style="max-width:36ch">Verständliche Informationen zu ADHS, mit Quellen. Dazu persönliche Begleitung mit Angie.</p></div>
+    <div><div class="logo" style="margin-bottom:1rem"><img class="logo__img" src="/assets/img/logo.png" width="84" height="84" alt="" loading="lazy"><span><b style="color:#fff">ADHS Begleitung</b></span></div><p style="max-width:36ch">Verständliche Informationen zu ADHS, mit Quellen. Dazu persönliche Begleitung mit Angie.</p></div>
     <div><h4>Themen</h4>${CATS.map((c) => `<a href="/thema/${c.slug}/">${c.name}</a>`).join('')}</div>
     <div><h4>Angebot</h4><a href="/begleitung/">Begleitung mit Angie</a><a href="/glossar/">Glossar</a><a href="/redaktion/">Redaktion und Quellen</a><a href="/kontakt/">Kontakt</a></div>
     <div><h4>Rechtliches</h4><a href="/impressum/">Impressum</a><a href="/datenschutz/">Datenschutz</a><a href="https://cogether.de/">Teil von CoGether</a></div>
@@ -149,7 +149,7 @@ for (const a of A) {
     ${faqHtml(a.faq)}
     <h2 id="quellen">Quellen</h2>
     <div class="src"><ol>${a.sources.map((s) => `<li><a href="${s.u}" rel="noopener" target="_blank">${esc(s.t)}</a></li>`).join('')}</ol><p>Alle Angaben beziehen sich auf den Stand der Quellen am 09.11.2026.</p></div>
-    <div class="author"><img src="/assets/img/Coach-Angie.jpeg" alt="Angie" width="84" height="84"><div><h4>Redaktion ADHS Begleitung</h4><p>Die Artikel werden aus den genannten Fachquellen erstellt. Persönliche Begleitung bietet Angie an, Mentorin und Wegbegleiterin bei CoGether.</p></div></div>
+    <div class="author"><img src="/assets/img/angie-portrait.jpg" alt="Angie" width="84" height="84" loading="lazy"><div><h4>Redaktion ADHS Begleitung</h4><p>Die Artikel werden aus den genannten Fachquellen erstellt. Persönliche Begleitung bietet Angie an, Mentorin und Wegbegleiterin bei CoGether.</p></div></div>
     <p class="disc">Dieser Artikel dient der Information. Er ersetzt keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise: Telefonseelsorge 116 123 (kostenlos), Notruf 112.</p>
     ${rel.length ? `<h2 style="margin-top:3rem">Weiterlesen</h2><div class="grid g2" style="margin-top:1rem">${rel.map(card).join('')}</div>` : ''}
   </article>
@@ -180,7 +180,7 @@ for (const a of A) {
     <h2>Themen</h2><ul><li>ADHS und Neurodivergenz im Alltag, ohne dass eine Diagnose Dich definiert</li><li>Überforderung, Reizüberflutung und Gedankenchaos</li><li>Grenzen und Bedürfnisse früher wahrnehmen</li><li>Beziehungen und wiederkehrende Konflikte</li><li>Selbstwert und Vertrauen in Dich selbst</li></ul>
     <h2>Was enthalten ist (Einzeltermin, 149 €)</h2><ul><li>60 Minuten 1:1 mit Angie</li><li>Persönliches Premium-Handout zu Deiner Stunde</li><li>Persönliche Learning Unit zur Vertiefung</li><li>Eigener Bereich bei CoGether und Austausch zwischen den Terminen</li></ul>
     <p>Längere Begleitungen über 3 oder 6 Monate und die Gruppenbegleitung UNGEFILTERT findest Du mit aktuellen Preisen bei <a href="https://cogether.de/coach-angie/" rel="noopener">CoGether</a>.</p>
-    <div class="box box--warn"><b>Grenzen:</b> Begleitung ersetzt keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Angie stellt keine Diagnosen und behandelt keine psychischen Erkrankungen.</div>
+    <figure style="margin:2rem 0"><img src="/assets/img/ich-bin-genug.jpg" alt="In den Schnee geschrieben: Ich bin genug. Daneben ein Schmetterling und ein zeigender Finger" width="1200" height="890" loading="lazy" style="border-radius:1.6rem;width:100%;height:auto"><figcaption style="font-size:.9rem;color:var(--mute);margin-top:.6rem">Ein Satz, der in der Begleitung oft am Anfang steht.</figcaption></figure><div class="box box--warn"><b>Grenzen:</b> Begleitung ersetzt keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Angie stellt keine Diagnosen und behandelt keine psychischen Erkrankungen.</div>
   </div>
   <aside><div class="side-cta" style="margin-top:0"><img src="/assets/img/Coach-Angie.jpeg" alt="Angie" width="421" height="530" style="border-radius:8px;margin-bottom:1rem;aspect-ratio:4/3;object-fit:cover;object-position:center 20%"><h4>Kostenloses Erstgespräch</h4><p>Online per Video, unverbindlich und ohne Druck.</p><a class="btn" href="${BOOK}">Erstgespräch buchen</a></div></aside>
 </div></section>` });

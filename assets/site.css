@@ -139,3 +139,6 @@ h1,h2,h3,h4{font-family:var(--head);font-weight:600;letter-spacing:-.01em}
 @media(max-width:640px){.hero:before{width:90%}.blobph__tag{left:0}}
 .hero:after{left:-11%;bottom:4%;width:24%}
 @media(max-width:1000px){.hero:after{display:none}}
+
+.logo__img{width:62px;height:62px;object-fit:contain;flex:none}.ft .logo__img{width:84px;height:84px}
+.hd .logo{gap:.6rem}
