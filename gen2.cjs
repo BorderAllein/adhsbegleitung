@@ -38,7 +38,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" co
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="stylesheet" href="/assets/site.css?v=7">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 </head>
@@ -110,6 +110,20 @@ layout({
   <div class="grid g3">${A.slice(0, 6).map(card).join('')}</div>
 </div></section>
 
+<section class="sec" id="angie"><div class="wrap story">
+  <div class="blobph"><svg class="blobph__star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg><div class="blobph__img"><img src="/assets/img/angie-portrait.jpg" alt="Angie im Porträt" width="323" height="501" loading="lazy"></div></div>
+  <div class="prose">
+    <span class="eyebrow">Angies Geschichte</span>
+    <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:1.2rem">Sie weiß, wie es ist, gegen sich selbst zu kämpfen.</h2>
+    <p>Angie begleitet Menschen mit ADHS, weil sie selbst mittendrin steckt. Sie lebt mit ADHS, und sie lebt mit ME/CFS, einer chronischen Erschöpfungserkrankung, und mit Fibromyalgie, einer chronischen Schmerzerkrankung.</p>
+    <p>Das heißt: Kraft ist bei ihr keine Selbstverständlichkeit. Sie muss sie sich immer wieder neu zusammensuchen, Pausen einplanen, Prioritäten setzen und mit Tagen umgehen, die anders laufen als geplant. Und sie macht trotzdem weiter. Nicht, weil sie unverwüstlich wäre, sondern weil sie gelernt hat, mit ihrer Energie zu haushalten und dem Ganzen auf ihre Art zu trotzen.</p>
+    <blockquote class="callout"><b>„Ich weiß, wie es ist, sich jahrelang zu fragen, warum man nicht einfach so funktioniert wie andere.“</b> Angie</blockquote>
+    <p>Genau diese Erfahrung bringt sie in ihre Begleitung ein. Dazu kommen langjährige Führungserfahrung, die Schulung von Führungspersonal und viele Weiterbildungen. Bei ihr musst Du nicht funktionieren, Dich nicht erklären und keine richtigen Antworten haben.</p>
+    <div class="chips"><span>ADHS</span><span>ME/CFS</span><span>Fibromyalgie</span></div>
+    <p style="margin-top:1.6rem"><a class="btn" href="/begleitung/">Mehr über die Begleitung</a></p>
+  </div>
+</div></section>
+
 <section class="sec sec--soft"><div class="wrap grid g2" style="align-items:center;gap:3rem">
   <div class="prose"><span class="eyebrow">Unser Anspruch</span><h2 style="font-size:2rem;margin-bottom:1rem">Qualität vor Menge</h2><p>Jeder Artikel nennt seine Quellen. Zahlen übernehmen wir nur, wenn wir sie belegen können. Wir geben keine medizinischen Empfehlungen und ersetzen weder Diagnostik noch Behandlung.</p><p><a class="btn btn--o" href="/redaktion/">Redaktion und Quellen</a></p></div>
   <div class="cat" style="cursor:default"><span class="cat__i">A</span><h3>Persönliche Begleitung mit Angie</h3><p>Wenn Wissen allein nicht reicht: Angie begleitet Menschen mit ADHS, Angehörige und Eltern, online und 1:1. Das Erstgespräch ist kostenlos.</p><p style="margin-top:1.2rem"><a class="btn" href="/begleitung/">Zur Begleitung</a></p></div>
@@ -175,7 +189,7 @@ for (const a of A) {
 <section class="sec"><div class="wrap layout" style="padding:0">
   <div class="prose">
     <h2 style="margin-top:0">Worum es geht</h2>
-    <p>Angie ist Mentorin, Co- und Wegbegleiterin bei CoGether und Stimme des Podcasts „Gedankenkotze“. Sie begleitet aus eigenem Alltag mit AD(H)S, mit langjähriger Führungserfahrung, Erfahrung in der Schulung von Führungspersonal und zahlreichen Weiterbildungen.</p>
+    <p>Angie ist Mentorin, Co- und Wegbegleiterin bei CoGether und Stimme des Podcasts „Gedankenkotze“. Sie begleitet aus eigenem Alltag mit AD(H)S, mit langjähriger Führungserfahrung, Erfahrung in der Schulung von Führungspersonal und zahlreichen Weiterbildungen.</p><p>Angie lebt außerdem mit ME/CFS und Fibromyalgie. Sie kennt es aus eigener Erfahrung, Kraft immer wieder neu sammeln zu müssen, und weiß, was es heißt, den Alltag trotz allem zu gestalten. <a href="/#angie">Angies Geschichte lesen</a></p>
     <p>Sie hört zu, fragt nach, teilt Wissen und eigene Erfahrungen als Angebot und sagt Dir auch, wenn ihr etwas auffällt. Du musst Dich nicht erklären und nicht funktionieren.</p>
     <h2>Themen</h2><ul><li>ADHS und Neurodivergenz im Alltag, ohne dass eine Diagnose Dich definiert</li><li>Überforderung, Reizüberflutung und Gedankenchaos</li><li>Grenzen und Bedürfnisse früher wahrnehmen</li><li>Beziehungen und wiederkehrende Konflikte</li><li>Selbstwert und Vertrauen in Dich selbst</li></ul>
     <h2>Was enthalten ist (Einzeltermin, 149 €)</h2><ul><li>60 Minuten 1:1 mit Angie</li><li>Persönliches Premium-Handout zu Deiner Stunde</li><li>Persönliche Learning Unit zur Vertiefung</li><li>Eigener Bereich bei CoGether und Austausch zwischen den Terminen</li></ul>

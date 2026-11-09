@@ -142,3 +142,6 @@ h1,h2,h3,h4{font-family:var(--head);font-weight:600;letter-spacing:-.01em}
 
 .logo__img{width:62px;height:62px;object-fit:contain;flex:none}.ft .logo__img{width:84px;height:84px}
 .hd .logo{gap:.6rem}
+
+.story{display:grid;grid-template-columns:.8fr 1.2fr;gap:3.4rem;align-items:center}.chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem}.chips span{background:var(--peach);color:var(--blue-d);border-radius:999px;padding:.45rem 1rem;font:600 .85rem var(--head)}
+@media(max-width:1000px){.story{grid-template-columns:1fr;gap:2rem}}
