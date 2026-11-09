@@ -1,23 +1,22 @@
-# ADHS Begleitung mit Angie
+# ADHS Begleitung
 
-> Begleitung für Menschen mit ADHS, für Partner, Angehörige und Eltern. Online, 1:1, mit Angie (Mentorin, Co- und Wegbegleiterin bei CoGether, Stimme des Podcasts Gedankenkotze). Coaching und Begleitung, keine Diagnostik, keine Therapie. Herausgeber: BA Entertainment, Alleestraße 15, 42781 Haan. Kontakt: info@cogether.de. Zuletzt aktualisiert: 09.11.2026.
+> Quellenbasierte Informationen zu ADHS bei Erwachsenen (erkennen, Diagnose, Behandlung, Alltag, Gefühle, Beziehung, Arbeit) und persönliche Begleitung mit Angie (Coaching, keine Therapie). Herausgeber: BA Entertainment, Alleestraße 15, 42781 Haan. Kontakt: info@cogether.de. Stand: 09.11.2026.
 
-## Seiten
+## Artikel
 
-- https://adhsbegleitung.de/
-- https://adhsbegleitung.de/begleitung/
-- https://adhsbegleitung.de/ueber-angie/
-- https://adhsbegleitung.de/adhs-verstehen/
-- https://adhsbegleitung.de/alltag/
-- https://adhsbegleitung.de/beziehungen/
-- https://adhsbegleitung.de/eltern/
-- https://adhsbegleitung.de/podcast/
-- https://adhsbegleitung.de/faq/
-- https://adhsbegleitung.de/kontakt/
-- https://adhsbegleitung.de/impressum/
-- https://adhsbegleitung.de/datenschutz/
+- [ADHS bei Erwachsenen: Symptome, Ursachen, Diagnose und Hilfe](https://adhsbegleitung.de/artikel/adhs-bei-erwachsenen/): ADHS bei Erwachsenen verständlich erklärt: typische Symptome, mögliche Ursachen, wie die Diagnose abläuft und welche Hilfen es gibt. Mit Quellen.
+- [ADHS-Diagnose bei Erwachsenen: Wer stellt sie, wie läuft sie ab?](https://adhsbegleitung.de/artikel/adhs-diagnose-erwachsene/): Wo bekomme ich eine ADHS-Diagnose als Erwachsener? Anlaufstellen, Ablauf der Diagnostik, Kriterien und was Sie vorbereiten können. Mit Quellen.
+- [ADHS bei Frauen: Warum sie oft spät erkannt wird](https://adhsbegleitung.de/artikel/adhs-bei-frauen/): ADHS bei Frauen und Mädchen wird häufig spät erkannt. Gründe, typische Verläufe und was Betroffenen helfen kann. Mit Quellen von ADHS Deutschland.
+- [AuDHS: Wenn Autismus und ADHS zusammenkommen](https://adhsbegleitung.de/artikel/audhs-autismus-und-adhs/): AuDHS bedeutet gleichzeitig Autismus und ADHS. Häufigkeit, Gemeinsamkeiten, Unterschiede, Diagnostik und Alltagstipps. Mit Quellen.
+- [Nachteilsausgleich bei ADHS: Was er ist und wie man ihn beantragt](https://adhsbegleitung.de/artikel/nachteilsausgleich-adhs/): Nachteilsausgleich bei ADHS in Schule und Ausbildung: Rechtsgrundlagen, mögliche Maßnahmen, Antrag und Nachweise. Mit Quellen von ADHS Deutschland.
+- [Coaching oder Therapie bei ADHS: Was ist der Unterschied?](https://adhsbegleitung.de/artikel/coaching-oder-therapie-bei-adhs/): ADHS-Coaching und Psychotherapie unterscheiden sich in Ziel, Qualifikation und Grenzen. Was Coaching leisten kann und was nicht.
+- [Medikamente bei ADHS im Erwachsenenalter: ein Überblick](https://adhsbegleitung.de/artikel/adhs-medikamente-ueberblick/): Welche Wirkstoffe bei ADHS im Erwachsenenalter zugelassen sind und was dazu gehört. Neutraler Überblick, keine Empfehlung. Mit Quellen.
+- [ADHS und Schlaf: Warum Einschlafen so schwer sein kann](https://adhsbegleitung.de/artikel/adhs-und-schlaf/): Schlafstörungen sind bei Erwachsenen mit ADHS ein häufiges Begleitsymptom. Was bekannt ist und welche Alltagsideen helfen können.
+- [Zeitblindheit bei ADHS: Strategien für den Alltag](https://adhsbegleitung.de/artikel/zeitblindheit-adhs/): Zeitblindheit beschreibt, dass Zeit schwer zu fühlen ist. Was damit gemeint ist, was daraus folgt und welche Strategien im Alltag helfen können.
+- [Ursachen von ADHS: Was die Forschung diskutiert](https://adhsbegleitung.de/artikel/adhs-ursachen/): Woher kommt ADHS? Genetik, Botenstoffe, Gehirn und weitere Faktoren in verständlicher Zusammenfassung. Mit Quellen.
 
-## Verwandt
+## Weitere Seiten
 
-- Podcast: https://gedankenkotze.de/
-- CoGether: https://cogether.de/
+- [Glossar](https://adhsbegleitung.de/glossar/)
+- [Begleitung mit Angie](https://adhsbegleitung.de/begleitung/)
+- [Redaktion und Quellen](https://adhsbegleitung.de/redaktion/)
