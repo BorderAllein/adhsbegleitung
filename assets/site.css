@@ -297,3 +297,5 @@ body.booking-modal-lock{overflow:hidden}
 .nlsec h2{font-size:1.5rem;margin-bottom:.6rem}.nlsec p{color:var(--mute)}
 .nlsec__f{width:100%;border:0;min-height:330px;background:transparent}
 @media(max-width:1000px){.nlsec__in{grid-template-columns:1fr;gap:1rem}}
+
+.soc-row{margin:1rem 0 0;font-size:.9rem;opacity:.9}.soc-row a{color:inherit;text-decoration:underline;text-underline-offset:3px}
