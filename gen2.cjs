@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const root = __dirname + '/';
 const { A, CATS, GLOSS } = require('./content/articles.cjs');
+const { NET } = require('./content/netzwerk.cjs');
 const wr = (f, t) => { fs.mkdirSync(path.dirname(root + f), { recursive: true }); fs.writeFileSync(root + f, t); };
 const B = 'https://adhsbegleitung.de';
 const DATE = '2026-11-09';
@@ -15,6 +16,8 @@ const SEARCH_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"
 
 const NAV = [['/thema/erkennen/', 'ADHS erkennen'], ['/thema/diagnose/', 'Diagnose'], ['/thema/behandlung/', 'Behandlung'], ['/thema/alltag/', 'Alltag'], ['/adhs-test/', 'ADHS-Test'], ['/podcast/', 'Podcast'], ['/glossar/', 'Glossar']];
 
+const NOFORM = ['/impressum/', '/datenschutz/', '/kontakt/'];
+const nlBlock = '<section class="nlsec"><div class="wrap nlsec__in"><div><h2>Wissen und Impulse per E-Mail</h2><p>Der CoGether-Newsletter: etwa alle zwei Wochen neue Artikel und Impulse. Anmeldung mit Bestätigungsmail, jederzeit abmeldbar.</p></div><iframe class="nlsec__f" id="nlf" title="CoGether-Newsletter anmelden" src="https://cogether.de/newsletter-embed/adhsbegleitung/" loading="lazy" height="330"></iframe></div></section>';
 function layout({ p, title, desc, schema = [], noindex = false, body }) {
   const url = B + p;
   const graph = [
@@ -38,7 +41,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" co
 <link rel="canonical" href="${url}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20">
+<link rel="stylesheet" href="/assets/site.css?v=22">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>
 <script src="/assets/site.js?v=1" defer></script>
 <script src="/assets/booking.js?v=1" defer></script>
@@ -58,6 +61,7 @@ ${noindex ? '<meta name="robots" content="noindex">\n' : '<meta name="robots" co
 <main id="main">
 ${body}
 </main>
+${NOFORM.includes(p) ? '' : nlBlock}
 <footer class="ft"><div class="wrap">
   <div class="ft__g">
     <div><div class="logo" style="margin-bottom:1rem"><img class="logo__img" src="/assets/img/logo.png" width="84" height="84" alt="" loading="lazy"><span><b style="color:#fff">ADHS Begleitung</b></span></div><p style="max-width:36ch">Verständliche Informationen zu ADHS, mit Quellen. Dazu persönliche Begleitung mit Angie.</p></div>
@@ -69,7 +73,7 @@ ${body}
   <p class="ft__sos"><b>Wichtig:</b> Die Inhalte dienen der Information und ersetzen keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise erreichst Du die Telefonseelsorge kostenlos unter <b>116 123</b>, im Notfall den Notruf <b>112</b>.</p>
   <div class="ft__b"><span>© <span id="y"></span> BA Entertainment · ADHS Begleitung</span><span>Stand: 09.11.2026</span></div>
 </div></footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<script>document.getElementById('y').textContent=new Date().getFullYear();window.addEventListener('message',function(e){if(e.origin==='https://cogether.de'&&e.data&&e.data.cgnl){var f=document.getElementById('nlf');if(f)f.style.height=(e.data.h+8)+'px'}});</script>
 </body>
 </html>
 `;
@@ -171,6 +175,12 @@ const cgBlock = (a) => {
   return '<section class="cgblock"><h2 style="margin-top:3rem">Wie es weitergehen kann</h2><p>Wissen ist ein Anfang. Wenn Du Dich begleiten lassen möchtest: <b>Angie</b> ist Mentorin und Wegbegleiterin bei CoGether und bietet Mentoring, Einzelbegleitung und die Gruppe UNGEFILTERT an. Das Erstgespräch ist kostenlos.</p><div class="cgl"><a href="' + CG + '/mentoring/" rel="noopener">Mentoring bei CoGether</a><a href="' + CG + '/coach-angie/" rel="noopener">Angie bei CoGether</a><a href="' + BOOK + '" rel="noopener">Kostenloses Erstgespräch</a><a href="/podcast/">Podcast Gedankenkotze</a>' + (['erkennen', 'diagnose'].includes(a.cat) ? '<a href="/adhs-test/">ADHS-Test</a>' : '') + ex + '</div></section>';
 };
 
+const netBlock = (a) => {
+  const l = NET[a.slug];
+  if (!l || !l.length) return '';
+  return '<section class="netz"><h2 style="margin-top:3rem">Im Netzwerk weiterlesen</h2><p>Passende Beiträge von unseren anderen Seiten:</p><ul>' + l.map((x) => '<li><a href="' + x.u + '" rel="noopener">' + esc(x.t) + '</a><small>' + esc(x.p) + '</small></li>').join('') + '</ul></section>';
+};
+
 /* ---------- ARTIKEL ---------- */
 for (const a of A) {
   const c = catBy[a.cat];
@@ -193,6 +203,7 @@ for (const a of A) {
     <div class="author"><img src="/assets/img/angie-portrait.jpg" alt="Angie" width="84" height="84" loading="lazy"><div><h4>Redaktion ADHS Begleitung</h4><p>Die Artikel werden aus den genannten Fachquellen erstellt. Persönliche Begleitung bietet Angie an, Mentorin und Wegbegleiterin bei CoGether.</p></div></div>
     <p class="disc">Dieser Artikel dient der Information. Er ersetzt keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise: Telefonseelsorge 116 123 (kostenlos), Notruf 112.</p>
     ${cgBlock(a)}
+    ${netBlock(a)}
     ${rel.length ? `<h2 style="margin-top:3rem">Weiterlesen</h2><div class="grid g2" style="margin-top:1rem">${rel.map(card).join('')}</div>` : ''}
   </article>
   <aside><div class="toc"><b>Inhalt</b>${a.sections.map(([id, h]) => `<a href="#${id}">${esc(h)}</a>`).join('')}<a href="#fragen">Häufige Fragen</a><a href="#quellen">Quellen</a></div>
@@ -364,7 +375,7 @@ layout({ p: '/kontakt/', title: 'Kontakt | ADHS Begleitung', desc: 'Kostenloses 
 layout({ p: '/impressum/', title: 'Impressum | ADHS Begleitung', desc: 'Impressum und Anbieterkennzeichnung gemäß § 5 DDG.',
   body: `<section class="ph"><div class="wrap"><h1>Impressum</h1><p class="lede">Angaben gemäß § 5 DDG.</p></div></section><section class="sec"><div class="wrap--n prose" style="margin:0 auto"><h2 style="margin-top:0">Anbieter</h2><p>BA Entertainment<br>Alleestraße 15<br>42781 Haan<br>Deutschland</p><h2>Kontakt</h2><p>E-Mail: info@cogether.de<br>Website: adhsbegleitung.de</p><h2>Vertretungsberechtigte Person</h2><p>S. Ulrich</p><h2>Umsatzsteuer-ID</h2><p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE352483219</p><h2>Haftung für Inhalte</h2><p>Die Inhalte dienen der Information und ersetzen keine ärztliche oder psychotherapeutische Beratung und Behandlung.</p></div></section>` });
 layout({ p: '/datenschutz/', title: 'Datenschutz | ADHS Begleitung', desc: 'Datenschutzhinweise für adhsbegleitung.de.',
-  body: `<section class="ph"><div class="wrap"><h1>Datenschutz</h1><p class="lede">Diese Seite setzt keine Tracking-Cookies und verwendet keine Analyse- oder Werbedienste.</p></div></section><section class="sec"><div class="wrap--n prose" style="margin:0 auto"><h2 style="margin-top:0">Verantwortliche Stelle</h2><p>BA Entertainment, Alleestraße 15, 42781 Haan, E-Mail: info@cogether.de</p><h2>Hosting und Server-Logdaten</h2><p>Die Seite wird als statische Website über GitHub Pages ausgeliefert. Beim Aufruf verarbeitet der Hoster technisch notwendige Daten (zum Beispiel IP-Adresse, Zeitpunkt, aufgerufene Seite), um die Seite auszuliefern und die Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p><h2>Schriftarten</h2><p>Die Schriftarten (Poppins, Inter) werden von Google Fonts geladen. Dabei wird Deine IP-Adresse an Google übertragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p><h2>Suche</h2><p>Die Suche läuft vollständig in Deinem Browser. Eingaben werden nicht übertragen oder gespeichert.</p><h2>Terminbuchung und Kontakt</h2><p>Für die Buchung eines Erstgesprächs wirst Du zu cogether.de weitergeleitet. Dort gelten die <a href="https://cogether.de/datenschutz/">Datenschutzhinweise von CoGether</a>. Wenn Du uns per E-Mail schreibst, verarbeiten wir Deine Angaben zur Bearbeitung Deiner Anfrage.</p><h2>Deine Rechte</h2><p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Schreib dazu an info@cogether.de.</p></div></section>` });
+  body: `<section class="ph"><div class="wrap"><h1>Datenschutz</h1><p class="lede">Diese Seite setzt keine Tracking-Cookies und verwendet keine Analyse- oder Werbedienste.</p></div></section><section class="sec"><div class="wrap--n prose" style="margin:0 auto"><h2 style="margin-top:0">Verantwortliche Stelle</h2><p>BA Entertainment, Alleestraße 15, 42781 Haan, E-Mail: info@cogether.de</p><h2>Hosting und Server-Logdaten</h2><p>Die Seite wird als statische Website über GitHub Pages ausgeliefert. Beim Aufruf verarbeitet der Hoster technisch notwendige Daten (zum Beispiel IP-Adresse, Zeitpunkt, aufgerufene Seite), um die Seite auszuliefern und die Sicherheit zu gewährleisten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p><h2>Schriftarten</h2><p>Die Schriftarten (Poppins, Inter) werden von Google Fonts geladen. Dabei wird Deine IP-Adresse an Google übertragen. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p><h2>Suche</h2><p>Die Suche läuft vollständig in Deinem Browser. Eingaben werden nicht übertragen oder gespeichert.</p><h2>Terminbuchung und Kontakt</h2><p>Für die Buchung eines Erstgesprächs wirst Du zu cogether.de weitergeleitet. Dort gelten die <a href="https://cogether.de/datenschutz/">Datenschutzhinweise von CoGether</a>. Wenn Du uns per E-Mail schreibst, verarbeiten wir Deine Angaben zur Bearbeitung Deiner Anfrage.</p><h2>Newsletter</h2><p>Auf einigen Seiten ist ein Anmeldeformular für den CoGether-Newsletter eingebettet. Es wird von cogether.de geladen, dabei wird Deine IP-Adresse an cogether.de übertragen. Eingaben werden erst übermittelt, wenn Du das Formular abschickst. Die Anmeldung erfolgt im Double-Opt-in-Verfahren, Verantwortlicher ist BA Entertainment, es gelten die <a href="https://cogether.de/datenschutz/">Datenschutzhinweise von CoGether</a>.</p><h2>Terminkalender</h2><p>Das Erstgespräch kann in einem eingebetteten Kalender von cogether.de gebucht werden. Der Kalender wird erst geladen, wenn Du ihn öffnest.</p><h2>Deine Rechte</h2><p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Schreib dazu an info@cogether.de.</p></div></section>` });
 
 /* ---------- Technik ---------- */
 wr('search-index.json', JSON.stringify(A.map((a) => ({ t: a.title, d: a.desc, c: catBy[a.cat].name, u: `/artikel/${a.slug}/`, k: a.sections.map((s) => s[1]).join(' ') + ' ' + a.faq.map((f) => f[0]).join(' ') }))));

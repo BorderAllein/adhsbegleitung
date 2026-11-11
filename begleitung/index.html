@@ -14,7 +14,7 @@
 <link rel="canonical" href="https://adhsbegleitung.de/begleitung/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/site.css?v=20">
+<link rel="stylesheet" href="/assets/site.css?v=22">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://adhsbegleitung.de/#org","name":"ADHS Begleitung","url":"https://adhsbegleitung.de/","parentOrganization":{"@type":"Organization","name":"BA Entertainment","address":{"@type":"PostalAddress","streetAddress":"Alleestraße 15","postalCode":"42781","addressLocality":"Haan","addressCountry":"DE"}}},{"@type":"WebSite","@id":"https://adhsbegleitung.de/#website","url":"https://adhsbegleitung.de/","name":"ADHS Begleitung","inLanguage":"de-DE","publisher":{"@id":"https://adhsbegleitung.de/#org"},"potentialAction":{"@type":"SearchAction","target":"https://adhsbegleitung.de/?q={q}","query-input":"required name=q"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://adhsbegleitung.de/"},{"@type":"ListItem","position":2,"name":"Begleitung mit Angie","item":"https://adhsbegleitung.de/begleitung/"}]},{"@type":"Service","name":"ADHS-Begleitung 1:1 mit Angie","provider":{"@id":"https://adhsbegleitung.de/#org"},"areaServed":"DE","serviceType":"Mentoring und Begleitung (Coaching)","offers":{"@type":"Offer","price":"149","priceCurrency":"EUR","description":"60 Minuten 1:1, persönliches Handout, Learning Unit, eigener Bereich bei CoGether"}}]}</script>
 <script src="/assets/site.js?v=1" defer></script>
 <script src="/assets/booking.js?v=1" defer></script>
@@ -52,6 +52,7 @@
   <aside><div class="side-cta" style="margin-top:0"><img src="/assets/img/Coach-Angie.jpeg" alt="Angie" width="421" height="530" style="border-radius:8px;margin-bottom:1rem;aspect-ratio:4/3;object-fit:cover;object-position:center 20%"><h4>Kostenloses Erstgespräch</h4><p>Online per Video, unverbindlich und ohne Druck.</p><a class="btn" href="https://cogether.de/coach-angie/#termin-buchen">Erstgespräch buchen</a></div></aside>
 </div></section>
 </main>
+<section class="nlsec"><div class="wrap nlsec__in"><div><h2>Wissen und Impulse per E-Mail</h2><p>Der CoGether-Newsletter: etwa alle zwei Wochen neue Artikel und Impulse. Anmeldung mit Bestätigungsmail, jederzeit abmeldbar.</p></div><iframe class="nlsec__f" id="nlf" title="CoGether-Newsletter anmelden" src="https://cogether.de/newsletter-embed/adhsbegleitung/" loading="lazy" height="330"></iframe></div></section>
 <footer class="ft"><div class="wrap">
   <div class="ft__g">
     <div><div class="logo" style="margin-bottom:1rem"><img class="logo__img" src="/assets/img/logo.png" width="84" height="84" alt="" loading="lazy"><span><b style="color:#fff">ADHS Begleitung</b></span></div><p style="max-width:36ch">Verständliche Informationen zu ADHS, mit Quellen. Dazu persönliche Begleitung mit Angie.</p></div>
@@ -63,6 +64,6 @@
   <p class="ft__sos"><b>Wichtig:</b> Die Inhalte dienen der Information und ersetzen keine Diagnose, keine ärztliche und keine psychotherapeutische Behandlung. Bei akuter Krise erreichst Du die Telefonseelsorge kostenlos unter <b>116 123</b>, im Notfall den Notruf <b>112</b>.</p>
   <div class="ft__b"><span>© <span id="y"></span> BA Entertainment · ADHS Begleitung</span><span>Stand: 09.11.2026</span></div>
 </div></footer>
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+<script>document.getElementById('y').textContent=new Date().getFullYear();window.addEventListener('message',function(e){if(e.origin==='https://cogether.de'&&e.data&&e.data.cgnl){var f=document.getElementById('nlf');if(f)f.style.height=(e.data.h+8)+'px'}});</script>
 </body>
 </html>

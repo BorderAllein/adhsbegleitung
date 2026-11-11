@@ -286,3 +286,14 @@ body.booking-modal-lock{overflow:hidden}
 .booking-modal__close{position:absolute;top:.5rem;right:.6rem;z-index:2;width:2.2rem;height:2.2rem;border:0;border-radius:6px;background:#fff;color:var(--ink);font-size:1.5rem;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 .booking-modal__iframe{flex:1;width:100%;border:0}
 .booking-modal__fb{margin:0;padding:.6rem 1rem;font-size:.85rem;color:var(--mute);border-top:1px solid var(--line);text-align:center}
+
+/* Netzwerk-Block und Newsletter */
+.netz{margin-top:2rem;padding:1.4rem 1.6rem;background:var(--soft);border:1px solid var(--line);border-radius:8px}
+.netz h2{margin:0 0 .4rem!important;font-size:1.25rem}.netz p{margin:0 0 .8rem;color:var(--mute);font-size:.95rem}
+.netz ul{list-style:none;margin:0;padding:0}.netz li{padding:.55rem 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.netz li:first-child{border-top:0}.netz a{font-weight:600}.netz small{color:var(--mute);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase}
+.nlsec{background:var(--soft);border-top:1px solid var(--line);padding:3rem 0}
+.nlsec__in{display:grid;grid-template-columns:1fr 1.1fr;gap:2.4rem;align-items:center}
+.nlsec h2{font-size:1.5rem;margin-bottom:.6rem}.nlsec p{color:var(--mute)}
+.nlsec__f{width:100%;border:0;min-height:330px;background:transparent}
+@media(max-width:1000px){.nlsec__in{grid-template-columns:1fr;gap:1rem}}
