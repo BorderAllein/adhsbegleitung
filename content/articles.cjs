@@ -203,6 +203,7 @@ const GLOSS = [
 ];
 const { A2, S2 } = require('./articles2.cjs');
 const { A3, S3 } = require('./articles3.cjs');
+const { A4, S4 } = require('./articles4.cjs');
 const today = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
-const ALL = A.concat(A2, A3).filter((a) => !a.publishedAt || a.publishedAt <= today);
-module.exports = { A: ALL, CATS, GLOSS, S: { ...S, ...S2, ...S3 } };
+const ALL = A.concat(A2, A3, A4).filter((a) => !a.publishedAt || a.publishedAt <= today);
+module.exports = { A: ALL, CATS, GLOSS, S: { ...S, ...S2, ...S3, ...S4 } };
