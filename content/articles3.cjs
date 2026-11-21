@@ -104,7 +104,7 @@ A3.push({
 });
 
 A3.push({
-  slug: 'adhs-und-sucht', cat: 'erkennen', publishedAt: '2026-11-23', title: 'ADHS und Sucht: Was bekannt ist und wo es Hilfe gibt', readMin: 5,
+  slug: 'adhs-und-sucht', cat: 'erkennen', publishedAt: '2026-11-21', title: 'ADHS und Sucht: Was bekannt ist und wo es Hilfe gibt', readMin: 5,
   desc: 'Bei Erwachsenen mit ADHS kommen Suchterkrankungen häufiger vor. Was ADHS Deutschland und NDR zu Zusammenhang, Risiko und Hilfe schreiben.',
   short: 'Suchterkrankungen kommen bei Erwachsenen mit ADHS häufig vor. ADHS Deutschland nennt, dass 20 bis 30 Prozent der Suchtpatienten eine unerkannte ADHS haben, und erklärt Suchtmittel als gescheiterte Selbstbehandlung. Wichtig ist, beides zu erkennen und zu behandeln.',
   sections: [
